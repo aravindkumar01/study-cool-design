@@ -1,0 +1,22 @@
+.example-card {
+    max-width: 100%;
+    margin-top: 20%;
+  }
+
+  .mat-card-header .mat-card-title {
+    font-size: 27px;
+    margin-left: 41px;
+}
+  .example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+
+  .output
+  {
+    color:red;
+  }

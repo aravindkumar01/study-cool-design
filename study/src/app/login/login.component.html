@@ -1,0 +1,47 @@
+
+
+<div fxLayout="row" fxLayoutAlign="center " class="login-main">
+    <div class="col-md-4"></div>
+    <div class="col-md-4" fxLayoutAlign="center ">
+
+<mat-card class="example-card" >
+      <mat-card-header color="primary" style="text-align:center;" >
+        <mat-card-title >Study Cool </mat-card-title>
+        <mat-card-subtitle *ngIf="response" class="output">Username or Password worng!!</mat-card-subtitle>  
+        <mat-card-subtitle > Sign in to continue.</mat-card-subtitle>      
+      </mat-card-header>
+      <mat-divider> </mat-divider>
+      <form class="example-form" role="form" (ngSubmit)="login()">
+      <mat-card-content align="center" style="margin-top:15px;">
+            <div class="example-container">
+              <form >
+                  <mat-form-field>
+                       <i matPrefix class="fa fa-user" style="font-size:18px;">&nbsp;&nbsp;&nbsp;</i>
+              
+                         <input type="email" matInput placeholder="username" name="username" required [(ngModel)]="users.username" (keyup)="somethingChanged()"/>
+                
+                  </mat-form-field>
+                <br><br>
+                  <mat-form-field style="margin-top: 10px;">
+                        <i matPrefix class="fa fa-eye-slash" aria-hidden="true" style="font-size:18px;">&nbsp;&nbsp;&nbsp;</i>
+                    <input matInput placeholder="password" type="password" name="password" required [(ngModel)]="users.password"/>
+                  </mat-form-field>
+                </form>
+                </div> 
+             
+              </mat-card-content>
+      <mat-card-actions  align="center">
+            <button mat-raised-button type="submit" color="primary">LOGIN</button>
+      </mat-card-actions>
+    </form>
+      <mat-card-footer style="text-align:center;margin-top: 50px;"> 
+          <label> Don’t have an account? 
+               <a href="/register">Sign Up</a></label> 
+               <br><br><br><br>
+      </mat-card-footer>
+     
+    </mat-card>
+    
+    </div>
+    <div class="col-md-4"></div>
+</div>
