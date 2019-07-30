@@ -23,5 +23,9 @@ export class Url {
     public static get courseUrl(): string {
         return "/course";
         }
+
+        public static get subjectUrl(): string {
+            return "/subject";
+            }
    
 }

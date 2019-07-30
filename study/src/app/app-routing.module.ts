@@ -14,12 +14,13 @@ import { ContentComponent } from './admin/content/content.component';
 import { AdduserComponent } from './admin/users/adduser/adduser.component';
 
 import { 
-  AuthGuardService as AuthGuard 
-} from './auth/auth-guard.service';
-import { 
   RoleGuardService as RoleGuard 
 } from './auth/role-guard.service';
 import { AddunivercityComponent } from './admin/univercity/addunivercity/addunivercity.component';
+import { CourseComponent } from './admin/course/course.component';
+import { AddcourseComponent } from './admin/course/addcourse/addcourse.component';
+import { SubjectComponent } from './admin/subject/subject.component';
+import { AddsubjectComponent } from './admin/subject/addsubject/addsubject.component';
 
 const routes: Routes = [
 
@@ -45,12 +46,17 @@ const routes: Routes = [
     { path: 'adduser', component: AdduserComponent },
     { path: 'univercity', component: UnivercityComponent },
     { path: 'addunivercity', component: AddunivercityComponent },
-    { path: 'course', component: RegisterComponent },
+    { path: 'course', component: CourseComponent },
+    { path: 'addcourse', component: AddcourseComponent},
+    { path: 'subject', component: SubjectComponent},
+    { path: 'addsubject', component: AddsubjectComponent},
     { path: 'sylabus', component: SylabusComponent },
     { path: 'content', component: ContentComponent }
   ], canActivate: [RoleGuard], 
+  runGuardsAndResolvers: "always",
   data: { 
-    expectedRole: 'ROLE_ADMIN'
+    expectedRole: 'ROLE_ADMIN',
+    
   }
   }
 

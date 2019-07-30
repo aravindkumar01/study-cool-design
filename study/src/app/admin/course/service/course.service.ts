@@ -26,9 +26,10 @@ export class CourseService {
     return this.http.get<Course>(`${this.baseURL}/${id}`,{headers});
   }
 
-  createCourse(course: any){   
+  createCourse(course: any,univercity_id:number){   
     var token= Constants.token_prefix+ localStorage.getItem('token');
-    const headers = new HttpHeaders({Authorization:token});    
+    const headers = new HttpHeaders({Authorization:token});   
+    this.baseURL+='/'+univercity_id;  
     return this.http.post(this.baseURL,course,{headers});
   }
 
@@ -42,7 +43,7 @@ export class CourseService {
   getCourseList() {
     var token= Constants.token_prefix+ localStorage.getItem('token');
     const headers = new HttpHeaders({Authorization:token});       
-    return this.http.get<Course[]>(this.baseURL,{headers});
+    return this.http.get<any[]>(this.baseURL,{headers});
   }
 
   deleteCourse(id: number){

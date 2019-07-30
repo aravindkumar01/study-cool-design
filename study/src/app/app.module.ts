@@ -27,6 +27,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddunivercityComponent } from './admin/univercity/addunivercity/addunivercity.component'; 
 import { JwtModule } from '@auth0/angular-jwt';
 import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
+import { AddcourseComponent } from './admin/course/addcourse/addcourse.component';
+import { SubjectComponent } from './admin/subject/subject.component';
+import { AddsubjectComponent } from './admin/subject/addsubject/addsubject.component';
 @NgModule({
   declarations: [
     MenuComponent,
@@ -46,6 +49,9 @@ import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
     UsersComponent,
     AdduserComponent,
     AddunivercityComponent,
+    AddcourseComponent,
+    SubjectComponent,
+    AddsubjectComponent
   ],
   entryComponents: [AdduserComponent],
   imports: [

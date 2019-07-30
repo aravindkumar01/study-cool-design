@@ -32,6 +32,7 @@ export class UnivercityComponent implements OnInit {
   
   univercityList()
   {
+  
     this.service.getUniverictyList().pipe(first()).subscribe(univercity => {  
       console.log(univercity);
       this.univercityies=univercity;
@@ -43,7 +44,7 @@ export class UnivercityComponent implements OnInit {
      
   }
   ngOnInit() {
-    
+   
     this.univercityList();  
 
   }

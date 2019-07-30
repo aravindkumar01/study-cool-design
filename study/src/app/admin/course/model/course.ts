@@ -1,5 +1,7 @@
+import { Univercity } from '../../univercity/model/univercity';
+
 export class Course {
     id:number;
     name:string;
-    univercity_id:number;
+    univercity:Univercity;
 }
