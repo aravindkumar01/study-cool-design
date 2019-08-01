@@ -15,7 +15,7 @@ export class CourseComponent implements OnInit {
  
   course:Course;  //pass edit or delete user 
   courses:Course[];
- displayedColumns: string[] = ['id', 'name','univercity','edit','delete'];
+ displayedColumns: string[] = ['id', 'name','univercity','edit','delete','subject'];
   dataSource: MatTableDataSource<Course>;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -30,7 +30,7 @@ export class CourseComponent implements OnInit {
   {
   
     this.service.getCourseList().pipe(first()).subscribe(course => {  
-      console.log(course);
+     
      
       //window.location.reload();
       this.courses=course;
@@ -59,7 +59,7 @@ export class CourseComponent implements OnInit {
 
   deleteUnivercity(course:Course)
   {
-   alert(course.id);
+   
    let r = confirm("Press yes to delete!");
           if (r == true) {
             this.service.deleteCourse(course.id) .subscribe(
@@ -80,6 +80,13 @@ export class CourseComponent implements OnInit {
    localStorage.removeItem("CourseId");
     localStorage.setItem("CourseId", course.id.toString());
     this.router.navigate(['/admin/addcourse']);
+  }
+
+  viewSubject(course:Course)
+  {
+    localStorage.removeItem("CourseId");
+    localStorage.setItem("CourseId", course.id.toString());
+    this.router.navigate(['/admin/subject']);
   }
 
 }

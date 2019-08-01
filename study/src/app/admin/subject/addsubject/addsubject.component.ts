@@ -1,37 +1,65 @@
 import { Component, OnInit } from '@angular/core';
-import { Subject } from '../model/subject';
+
 import { FormControl, Validators } from '@angular/forms';
 import { SubjectService } from '../service/subject.service';
 import { Router } from '@angular/router';
+import { first } from 'rxjs/operators';
+import { Subject } from '../model/subject';
 
+export interface Year {
+  count:number;
+}
+
+export interface Semster {
+  name:string;
+}
 @Component({
   selector: 'app-addsubject',
   templateUrl: './addsubject.component.html',
   styleUrls: ['./addsubject.component.css']
 })
 export class AddsubjectComponent implements OnInit {
-  /*subject:Subject=new Subject();
+
+  year:Year[]=[
+    {count:1},
+    {count:2},
+    {count:3}    
+  ];
+
+  semster:Semster[]=[
+    {name:"odd"},{name:"even"}
+  ]
+
+  c_id:number;
+  subject:Subject=new Subject();
   buttonName:string="Create";
-  // univercity:Univercity[];
   nameControl = new FormControl('', [Validators.required]);
-  addressControl = new FormControl('', [Validators.required]);
-  locationControl = new FormControl('', [Validators.required]);
+  yearControl = new FormControl('', [Validators.required]);
+  semsterControl = new FormControl('', [Validators.required]);
   
   constructor(private service:SubjectService,private router: Router) { }
 
   ngOnInit() {
+   
     let SubjectId = localStorage.getItem("SubjectId");
+    this.c_id=+localStorage.getItem("CourseId");
 
-    if(SubjectId!=null) {
+    if(SubjectId!=null) {      
       this.buttonName="Update";
-       this.service.getSubject(+ SubjectId).pipe(first()).subscribe(univercity => {   
-           this.subject=univercity; });
-          localStorage.removeItem("UnivercityId");
+       this.service.getSubject(+ SubjectId).pipe(first()).subscribe(subject => {   
+         console.log("single"+subject)
+           this.subject=subject;
+           });
+          localStorage.removeItem("SubjectId");
+          localStorage.removeItem("CourseId");
     }
     
   }
   save() {
-    this.service.createUnivercity(this.univercity)  
+
+    this.subject.course_id=this.c_id;
+    console.log("save"+this.subject);
+    this.service.createSubject(this.subject)  
       .subscribe(
         data => {
           alert(data);     
@@ -42,22 +70,16 @@ export class AddsubjectComponent implements OnInit {
           
         }
         );
-    this.univercity = new Univercity();
+    this.subject = new Subject();
    
-    this.router.navigate(['/admin/univercity']);
+    this.router.navigate(['/admin/subject']);
    // window.location.reload();
   }
 
   
   onSubmit() {
-
-    if(localStorage.getItem("UnivercityId")!=null) { this.update();}
-    if(localStorage.getItem("UnivercityId")==null){ this.save();}
-    localStorage.removeItem("UnivercityId");  
-  
+    localStorage.removeItem("SubjectId");  
+    this.save();
   }
-*/
 
-ngOnInit() {
-}
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Subject } from './model/subject';
-import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatSort, MatGridTileHeaderCssMatStyler } from '@angular/material';
 import { SubjectService } from './service/subject.service';
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
@@ -11,8 +11,8 @@ import { first } from 'rxjs/operators';
   styleUrls: ['./subject.component.css']
 })
 export class SubjectComponent implements OnInit {
-
-  
+  title:string="All subjects";
+  c_id:number;
   subject:Subject;;  //pass edit or delete user 
   subjectes:Subject[];
 
@@ -30,8 +30,7 @@ export class SubjectComponent implements OnInit {
   subjectList()
   {
   
-    this.service.getSubjectList().pipe(first()).subscribe(subject => {  
-      console.log(subject);
+    this.service.getSubjectList().pipe(first()).subscribe(subject => {      
       this.subjectes=subject;
       this.dataSource = new MatTableDataSource(this.subjectes);
       this.dataSource.paginator = this.paginator;
@@ -40,10 +39,30 @@ export class SubjectComponent implements OnInit {
   });
      
   }
+
+  subjectListByCourse(id:any)
+  {
+    this.service.getSubjectListByCourse(id).pipe(first()).subscribe(subject => {  
+      console.log(subject);
+      this.subjectes=subject;
+      this.dataSource = new MatTableDataSource(this.subjectes);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+      
+  });
+  }
   ngOnInit() {
    
-    this.subjectList();  
-
+    this.c_id=+localStorage.getItem("CourseId");
+    
+    if(localStorage.getItem("CourseId")!=null){
+      this.title="Subject_"+this.c_id;
+      this.subjectListByCourse(this.c_id);  
+     
+    }
+    else{ this.subjectList(); }
+  
+    localStorage.removeItem("CourseId");
   }
 
   applyFilter(filterValue: string) {
@@ -73,15 +92,19 @@ export class SubjectComponent implements OnInit {
           } 
     }
 
-    editUnivercity(subject:Subject)
-  {
-  
-   localStorage.removeItem("SubjectId");
+    editSubject(subject:Subject)
+  {    
+    localStorage.removeItem("SubjectId");
     localStorage.setItem("SubjectId", subject.id.toString());
     this.router.navigate(['/admin/addsubject']);
   }
 
 
 
-
+  addSubject()
+  {  
+    localStorage.removeItem("CourseId");
+    localStorage.setItem("CourseId",this.c_id.toString());
+    this.router.navigate(['/admin/addsubject']);
+  }
 }
