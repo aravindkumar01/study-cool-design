@@ -55,6 +55,11 @@
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Delete</th>
                 <td mat-cell *matCellDef="let row" ><button mat-flat-button color="accent" (click)="deleteSubject(row)">Delete</button></td>
               </ng-container>
+
+              <ng-container matColumnDef="sylabus">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Sylabus</th>
+                <td mat-cell *matCellDef="let row" ><button   class="btn btn-info" (click)="viewSylabus(row)">sylabus</button></td>
+              </ng-container>
           
            
               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -10,7 +10,6 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { UnivercityComponent } from './admin/univercity/univercity.component';
 import { UsersComponent } from './admin/users/users.component';
 import { SylabusComponent } from './admin/sylabus/sylabus.component';
-import { ContentComponent } from './admin/content/content.component';
 import { AdduserComponent } from './admin/users/adduser/adduser.component';
 
 import { 
@@ -21,6 +20,9 @@ import { CourseComponent } from './admin/course/course.component';
 import { AddcourseComponent } from './admin/course/addcourse/addcourse.component';
 import { SubjectComponent } from './admin/subject/subject.component';
 import { AddsubjectComponent } from './admin/subject/addsubject/addsubject.component';
+import { AddsylabusComponent } from './admin/sylabus/addsylabus/addsylabus.component';
+import { Content } from '@angular/compiler/src/render3/r3_ast';
+import { ContentComponent } from './admin/content/content.component';
 
 const routes: Routes = [
 
@@ -51,7 +53,8 @@ const routes: Routes = [
     { path: 'subject', component: SubjectComponent},
     { path: 'addsubject', component: AddsubjectComponent},
     { path: 'sylabus', component: SylabusComponent },
-    { path: 'content', component: ContentComponent }
+    { path: 'addsylabus', component: AddsylabusComponent },
+    {path:"content",component:ContentComponent}
   ], canActivate: [RoleGuard], 
   runGuardsAndResolvers: "always",
   data: { 

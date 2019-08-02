@@ -4,6 +4,7 @@ import { MatTableDataSource, MatPaginator, MatSort, MatGridTileHeaderCssMatStyle
 import { SubjectService } from './service/subject.service';
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
+import { Sylabus } from '../sylabus/model/sylabus';
 
 @Component({
   selector: 'app-subject',
@@ -16,7 +17,7 @@ export class SubjectComponent implements OnInit {
   subject:Subject;;  //pass edit or delete user 
   subjectes:Subject[];
 
- displayedColumns: string[] = ['id', 'name','year','semster','edit','delete'];
+ displayedColumns: string[] = ['id', 'name','year','semster','edit','delete','sylabus'];
   dataSource: MatTableDataSource<Subject>;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -107,4 +108,12 @@ export class SubjectComponent implements OnInit {
     localStorage.setItem("CourseId",this.c_id.toString());
     this.router.navigate(['/admin/addsubject']);
   }
+
+  viewSylabus(subject:Subject)
+  {
+    localStorage.removeItem("SubjectId");
+    localStorage.setItem("SubjectId", subject.id.toString());
+    this.router.navigate(['/admin/sylabus']);
+  }
+
 }

@@ -17,7 +17,6 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { UnivercityComponent } from './admin/univercity/univercity.component';
 import { CourseComponent } from './admin/course/course.component';
 import { SylabusComponent } from './admin/sylabus/sylabus.component';
-import { ContentComponent } from './admin/content/content.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UsersComponent } from './admin/users/users.component';
 import { MatPaginatorModule } from '@angular/material';
@@ -30,6 +29,9 @@ import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
 import { AddcourseComponent } from './admin/course/addcourse/addcourse.component';
 import { SubjectComponent } from './admin/subject/subject.component';
 import { AddsubjectComponent } from './admin/subject/addsubject/addsubject.component';
+import { AddsylabusComponent } from './admin/sylabus/addsylabus/addsylabus.component';
+import { ContentComponent } from './admin/content/content.component';
+import { AddcontentComponent } from './admin/content/addcontent/addcontent.component';
 @NgModule({
   declarations: [
     MenuComponent,
@@ -44,14 +46,16 @@ import { AddsubjectComponent } from './admin/subject/addsubject/addsubject.compo
     DashboardComponent,
     CourseComponent,
     SylabusComponent,
-    ContentComponent,
     ProfileComponent,
     UsersComponent,
     AdduserComponent,
     AddunivercityComponent,
     AddcourseComponent,
     SubjectComponent,
-    AddsubjectComponent
+    AddsubjectComponent,
+    AddsylabusComponent,
+    AddcontentComponent,
+    ContentComponent    
   ],
   entryComponents: [AdduserComponent],
   imports: [
