@@ -17,7 +17,7 @@ export class SylabusComponent implements OnInit {
   sylabus:Sylabus;  //pass edit or delete user 
   sylabuses:Sylabus[];
 
- displayedColumns: string[] = ['id', 'topic','unit_number','edit','delete'];
+ displayedColumns: string[] = ['id', 'topic','unit_number','file','edit','delete'];
   dataSource: MatTableDataSource<Sylabus>;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;

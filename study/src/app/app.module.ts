@@ -30,8 +30,6 @@ import { AddcourseComponent } from './admin/course/addcourse/addcourse.component
 import { SubjectComponent } from './admin/subject/subject.component';
 import { AddsubjectComponent } from './admin/subject/addsubject/addsubject.component';
 import { AddsylabusComponent } from './admin/sylabus/addsylabus/addsylabus.component';
-import { ContentComponent } from './admin/content/content.component';
-import { AddcontentComponent } from './admin/content/addcontent/addcontent.component';
 @NgModule({
   declarations: [
     MenuComponent,
@@ -53,9 +51,7 @@ import { AddcontentComponent } from './admin/content/addcontent/addcontent.compo
     AddcourseComponent,
     SubjectComponent,
     AddsubjectComponent,
-    AddsylabusComponent,
-    AddcontentComponent,
-    ContentComponent    
+    AddsylabusComponent
   ],
   entryComponents: [AdduserComponent],
   imports: [

@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Sylabus } from '../model/sylabus';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { SylabusService } from '../service/sylabus.service';
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Constants } from 'src/app/constants/constants';
 
 export interface Unit {
   count:number;
@@ -16,7 +18,7 @@ export interface Unit {
 
 
 export class AddsylabusComponent implements OnInit {
-
+  uploadForm: FormGroup; 
   
   unit:Unit[]=[
     {count:1},
@@ -31,11 +33,14 @@ export class AddsylabusComponent implements OnInit {
   topicControl = new FormControl('', [Validators.required]);
   unitControl = new FormControl('', [Validators.required]);
   semsterControl = new FormControl('', [Validators.required]);
+  //fileControl = new FormControl('', [Validators.required]);
   
-  constructor(private service:SylabusService,private router: Router) { }
+  constructor(private httpClient: HttpClient,private formBuilder: FormBuilder,private service:SylabusService,private router: Router) { }
 
   ngOnInit() {
-   
+    this.uploadForm = this.formBuilder.group({
+      file: ['']
+    });
     let SylabusId = localStorage.getItem("SylabusId");
     this.s_id=+localStorage.getItem("SubjectId");
 
@@ -51,10 +56,16 @@ export class AddsylabusComponent implements OnInit {
     
   }
   save() {
-
     this.sylabus.subject_id=this.s_id;
+    const formData = new FormData();
+    const name=this.sylabus;
+    console.log(this.sylabus);
+    formData.append('file', this.uploadForm.get('file').value);
+    formData.append("name",JSON.stringify(name));
+
+    
     console.log("save"+this.sylabus);
-    this.service.createSylabus(this.sylabus)  
+    this.service.createSylabus(formData)  
       .subscribe(
         data => {
           alert(data);     
@@ -71,11 +82,18 @@ export class AddsylabusComponent implements OnInit {
    // window.location.reload();
   }
 
-  
   onSubmit() {
-    localStorage.removeItem("SylabusId");  
-    this.save();
+        localStorage.removeItem("SylabusId");  
+  this.save();
+
   }
 
+
+  onFileSelect(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.uploadForm.get('file').setValue(file);
+    }
+  }
 
 }

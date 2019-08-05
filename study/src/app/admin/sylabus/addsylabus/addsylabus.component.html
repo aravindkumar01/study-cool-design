@@ -3,7 +3,7 @@
   <div class="col-md-4" fxLayoutAlign="center ">
 
 <mat-card class="example-card" class="text-center">
-    <form class="example-form"  (ngSubmit)="onSubmit()">
+    <form class="example-form" [formGroup] = "uploadForm" (ngSubmit)="onSubmit()">
     <mat-card-header color="primary" style="text-align:center;">
       <mat-card-title style="margin-left:45px;">Add new sylabus</mat-card-title><br>
     </mat-card-header>
@@ -16,6 +16,12 @@
                     <input type="text" matInput placeholder="Sylabus_topic" [formControl]="topicControl" name="name" required [(ngModel)]="sylabus.topic" >
                     <mat-error *ngIf="topicControl.hasError('required')">Please provide topic</mat-error>              
              </mat-form-field>
+             <br>
+             <div class="row text-center">
+               <div class="col-sm-3"></div>
+               <div class="col-sm-4"> <input type="file"  placeholder="File"  name="file" required  (change)="onFileSelect($event)"></div>
+               <div class="col-sm-5"></div>   
+             </div>
              <br>
              
            <mat-form-field>

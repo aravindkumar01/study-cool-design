@@ -21,8 +21,6 @@ import { AddcourseComponent } from './admin/course/addcourse/addcourse.component
 import { SubjectComponent } from './admin/subject/subject.component';
 import { AddsubjectComponent } from './admin/subject/addsubject/addsubject.component';
 import { AddsylabusComponent } from './admin/sylabus/addsylabus/addsylabus.component';
-import { Content } from '@angular/compiler/src/render3/r3_ast';
-import { ContentComponent } from './admin/content/content.component';
 
 const routes: Routes = [
 
@@ -53,8 +51,8 @@ const routes: Routes = [
     { path: 'subject', component: SubjectComponent},
     { path: 'addsubject', component: AddsubjectComponent},
     { path: 'sylabus', component: SylabusComponent },
-    { path: 'addsylabus', component: AddsylabusComponent },
-    {path:"content",component:ContentComponent}
+    { path: 'addsylabus', component: AddsylabusComponent }
+   
   ], canActivate: [RoleGuard], 
   runGuardsAndResolvers: "always",
   data: { 
