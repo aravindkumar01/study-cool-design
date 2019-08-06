@@ -17,7 +17,12 @@ export class MenuComponent implements OnInit {
   }
   mobileQuery: MediaQueryList;
 
-  fillerNav:Menu[]=[     
+  headerNav:Menu[]=[
+    {name:"Profile",link:"/admin/dashboard",icon_name:"person_add"},
+    {name:"Logout",link:"/admin/dashboard",icon_name:"exit_to_app"}
+  ];
+
+  adminNav:Menu[]=[     
     {name:"Dashboard",link:"/admin/dashboard",icon_name:"home"},
     {name:"Users",link:"/admin/users",icon_name:"account_box"},
     {name:"Univercity",link:"/admin/univercity",icon_name:"markunread_mailbox"},
@@ -41,6 +46,7 @@ export class MenuComponent implements OnInit {
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
+ 
 
   shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
 }

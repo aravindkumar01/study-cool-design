@@ -8,19 +8,12 @@
             <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
                 <mat-icon>more_vert</mat-icon>
               </button>
-              <mat-menu #menu="matMenu">
-                <button mat-menu-item>
-                  <mat-icon>dialpad</mat-icon>
-                  <span>Redial</span>
+              <mat-menu #menu="matMenu" >
+                <button mat-menu-item *ngFor="let h of headerNav" routerLink="{{h.link}}">
+                  <mat-icon>{{h.icon_name}}</mat-icon>
+                  <span>{{h.name}}</span>
                 </button>
-                <button mat-menu-item disabled>
-                  <mat-icon>voicemail</mat-icon>
-                  <span>Check voice mail</span>
-                </button>
-                <button mat-menu-item>
-                  <mat-icon>notifications_off</mat-icon>
-                  <span>Disable alerts</span>
-                </button>
+               
               </mat-menu>
           
    </mat-toolbar>
@@ -29,11 +22,11 @@
                          [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
                  [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
-      <mat-nav-list color="primary" *ngFor="let nav of fillerNav">
+      <mat-nav-list color="primary" *ngFor="let nav of adminNav">
               <!-- <a mat-list-item routerLink="/register" routerLinkActive="active" *ngFor="let nav of fillerNav" >{{nav.name}}</a>
                 <button type="button"  mat-menu-item routerLink="/admin/users" routerLinkActive="active">                 
                     <mat-icon aria-hidden="false" style="color:black;" aria-label="Example home icon">account_box</mat-icon>Users</button>-->
-          <button type="button" class="btn btn-default" mat-menu-item routerLink="{{nav.link}}" routerLinkActive="active">
+          <button type="button" (click)="snav.toggle()" class="btn btn-default" mat-menu-item routerLink="{{nav.link}}" routerLinkActive="active">
             <mat-icon aria-hidden="false" style="color:black;" aria-label="Example home icon">{{nav.icon_name}}</mat-icon>{{nav.name}}</button>
     
 
