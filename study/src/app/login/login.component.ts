@@ -5,9 +5,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../admin/users/service/user.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Users } from './users/users';
-import { Observable } from 'rxjs';
-
 
 @Component({
   selector: 'app-login',

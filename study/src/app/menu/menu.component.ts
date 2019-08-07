@@ -18,8 +18,8 @@ export class MenuComponent implements OnInit {
   mobileQuery: MediaQueryList;
 
   headerNav:Menu[]=[
-    {name:"Profile",link:"/admin/dashboard",icon_name:"person_add"},
-    {name:"Logout",link:"/admin/dashboard",icon_name:"exit_to_app"}
+    {name:"Profile",link:"/admin/profile",icon_name:"person_add"},
+    {name:"Logout",link:"/admin/logout",icon_name:"exit_to_app"}
   ];
 
   adminNav:Menu[]=[     

@@ -1,10 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-
-import { HttpHeaders } from '@angular/common/http';
-import { Users } from '../users/users';
-import { tokenName } from '@angular/compiler';
 import { Url } from 'src/app/URL/url';
 import { Router } from '@angular/router';
 
@@ -25,8 +20,7 @@ export class LoginService {
   
 
   loginUserBoolean(users:LoginUser) {
-      var s=false;
-     
+          var s=false;     
      return this.http.post<any>(this.baseUrl, users);
       
     }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
+
+  oldPassword = new FormControl('', [Validators.required]);
+  newPassword = new FormControl('', [Validators.required]);
   constructor() { }
 
   ngOnInit() {
+   
   }
 
 }

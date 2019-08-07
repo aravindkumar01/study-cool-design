@@ -1,4 +1,13 @@
+import decode from 'jwt-decode';
 export class Url {
+
+    public static get username():string{
+        const token = localStorage.getItem('token');
+        // decode the token to get its payload
+        const tokenPayload = decode(token);
+        
+        return tokenPayload.sub;
+    }
 
     public static get baseURL(): string {
          return "http://localhost:8091";

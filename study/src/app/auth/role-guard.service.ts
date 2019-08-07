@@ -16,12 +16,14 @@ export class RoleGuardService {
     // decode the token to get its payload
     const tokenPayload = decode(token);
      //console.log(tokenPayload);
-      // alert(tokenPayload);
-       //alert(tokenPayload.scopes);
+      //alert(tokenPayload);
+      // alert(tokenPayload.scopes);
     if (!this.auth.isAuthenticated() || tokenPayload.scopes !== expectedRole) {
       this.router.navigate(['/login']);
       return false;
     }
     return true;
   }
+
+
 }
