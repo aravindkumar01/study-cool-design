@@ -55,11 +55,11 @@ const routes: Routes = [
     { path: 'addsylabus', component: AddsylabusComponent },
     { path: 'profile', component: ProfileComponent  }
    
-  ], canActivate: [RoleGuard], 
+  ]/*, canActivate: [RoleGuard], 
   runGuardsAndResolvers: "always",
   data: { 
     expectedRole: 'ROLE_ADMIN',    
-  }
+  }*/
   }
   
 

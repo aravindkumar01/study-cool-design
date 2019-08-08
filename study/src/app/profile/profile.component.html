@@ -16,7 +16,7 @@
                                 <span class="glyphicon glyphicon-cog"></span>
                             </a>
                         </li>
-                        <li>
+                     <!--   <li>
                             <a data-toggle="tab" href="#email">
                                 <span class="glyphicon glyphicon-envelope"></span>
                             </a>
@@ -25,25 +25,25 @@
                             <a data-toggle="tab" href="#events">
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </a>
-                        </li>
+                        </li>-->
                     </ul>
                     <div class="user-body">
                         <div class="tab-content">                            
                             <div id="settings" class="tab-pane active example-form">
                                 <h3>Change Password</h3>
-                                <form>
+                                <form >
                                             <p>Please Enter Current Password Correctly</p>
                                             <mat-form-field appearance="legacy" class="example-full-width">
                                                     <mat-icon matPrefix>edit</mat-icon>
                                                     <mat-label>&nbsp;&nbsp;Old Password</mat-label>
-                                                    <input matInput placeholder="Old Password" [formControl]="oldPassword" >
+                                                    <input type="password" matInput placeholder="Old Password" [formControl]="oldPassword" #oldpass name="oldPassword" ngModel required>
                                                      <mat-error *ngIf="oldPassword.hasError('required')">
                                                                 OldPassword is <strong>required</strong>
                                                        </mat-error>                                                                                                                                       
                                             </mat-form-field><br>
                                             <mat-form-field appearance="legacy" class="example-full-width">
                                                 <mat-label>&nbsp;&nbsp;New Password</mat-label>
-                                                <input matInput placeholder="New Password"  [formControl]="newPassword">
+                                                <input type="password" matInput placeholder="New Password" #newpass [formControl]="newPassword" (keyup)="OnInput(newpass.value,confirm.value)" name="newPassword" ngModel required> 
                                                 <mat-icon matPrefix>vpn_key</mat-icon>    
                                                 <mat-error *ngIf="newPassword.hasError('required')">
                                                         NewPassword is <strong>required</strong>
@@ -51,19 +51,22 @@
                                             </mat-form-field><br>
                                             <mat-form-field appearance="legacy" class="example-full-width">
                                                 <mat-label>&nbsp;&nbsp;Confirm Password</mat-label>
-                                                <input matInput placeholder="Confirm Password">
-                                                <mat-icon matPrefix>vpn_key</mat-icon>                                       
+                                                <input type="password" matInput placeholder="Confirm Password" #confirm (keyup)="OnInput(newpass.value,confirm.value)" name="conpass" ngModel required>
+                                                <mat-icon matPrefix>vpn_key</mat-icon>                                                                                     
                                             </mat-form-field><br>
-                                        <button [disabled]="loading"  mat-flat-button color="primary">Sumbit</button>
+                                            <p *ngIf="notMatch" style="color: brown;">
+                                                Password  <strong>did't match</strong>
+                                            </p> 
+                                        <button mat-flat-button *ngIf="btnView"  type="submit"  color="primary"  (click) = "onSubmit(oldpass.value, newpass.value)">Sumbit</button>
                                 </form>
 
                             </div>
-                            <div id="email" class="tab-pane">
+                         <!--   <div id="email" class="tab-pane">
                                 <h4>Send Message</h4>
                             </div>
                             <div id="events" class="tab-pane">
                                 <h4>Events</h4>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>

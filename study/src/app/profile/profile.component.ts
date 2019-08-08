@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators, NgForm, Form } from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
@@ -8,7 +8,9 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class ProfileComponent implements OnInit {
 
-
+  passwordForm:Form;
+  notMatch:boolean=false;
+  btnView:boolean=false;
   oldPassword = new FormControl('', [Validators.required]);
   newPassword = new FormControl('', [Validators.required]);
   constructor() { }
@@ -17,4 +19,29 @@ export class ProfileComponent implements OnInit {
    
   }
 
+
+
+  onSubmit(old:any,newpass:any) {
+
+    
+    
+  }
+
+
+
+
+
+
+
+
+  OnInput(pass:any,confirm:any) {
+      if(pass==confirm){
+       this. notMatch=false;
+       this.btnView=true;
+      }
+      else{
+        this.notMatch=true; 
+        this.btnView=false;       
+      }
+    }
 }
