@@ -34,6 +34,7 @@ import { UserHomeComponent } from './user/user-home/user-home.component';
 import { UserLayoutComponent } from './user/user-layout/user-layout.component';
 import { UserMenuComponent } from './user/user-menu/user-menu.component';
 import { SubjectsComponent } from './user/subjects/subjects.component';
+import { UserCourseComponent } from './user/user-course/user-course.component';
 @NgModule({
   declarations: [
     MenuComponent,
@@ -59,7 +60,8 @@ import { SubjectsComponent } from './user/subjects/subjects.component';
     UserHomeComponent,
     UserLayoutComponent,
     UserMenuComponent,
-    SubjectsComponent
+    SubjectsComponent,
+    UserCourseComponent
   ],
   entryComponents: [AdduserComponent],
   imports: [

@@ -1,0 +1,43 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+    <mat-toolbar color="" class="example-toolbar">
+     
+          <button mat-icon-button (click)="increase()"><mat-icon>menu</mat-icon></button>
+            <h1 class="example-app-name">Study Cool</h1>
+              <span class="example-fill-remaining-space"></span>
+  
+              <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu" >
+                  <button mat-menu-item *ngFor="let h of headerNav" routerLink="{{h.link}}">
+                    <mat-icon>{{h.icon_name}}</mat-icon>
+                    <span>{{h.name}}</span>
+                  </button>
+                 
+                </mat-menu>
+            
+     </mat-toolbar>
+  
+    <mat-sidenav-container class="example-sidenav-container"
+                           [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+      <mat-sidenav #sidenav mode="side" class="example-sidenav" [ngStyle]="{ 'width.em': sidenavWidth }" opened="true" (mouseenter)="increase()"
+      (mouseleave)="decrease()">
+        <mat-nav-list color="primary" *ngFor="let nav of adminNav" autosize >
+              <mat-icon aria-hidden="false" style="color:black;" aria-label="Example home icon">{{nav.icon_name}}</mat-icon>
+               <div fxFlex="10"></div>
+               <div *ngIf="sidenavWidth > 6" class="sidenav-item">
+                  <button type="button" (click)="snav.toggle()" class="btn btn-default" mat-menu-item routerLink="{{nav.link}}" routerLinkActive="active">{{nav.name}}</button>          
+              </div>
+           
+  
+        </mat-nav-list>
+      </mat-sidenav>
+  
+      <mat-sidenav-content>
+          <router-outlet></router-outlet>
+  
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  
+  ################################################nav################

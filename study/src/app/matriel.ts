@@ -15,12 +15,13 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
 
+
 @NgModule({
         imports: [   MatFormFieldModule,MatButtonModule ,MatInputModule,MatCardModule,MatIconModule
             ,MatSelectModule,ReactiveFormsModule,MatDividerModule,MatSidenavModule,MatListModule,MatMenuModule,MatNativeDateModule,MatTableModule,MatDialogModule
          ],
         exports:[MatFormFieldModule,MatButtonModule,MatInputModule,MatCardModule,
-            MatIconModule,MatSelectModule,ReactiveFormsModule,MatDividerModule,MatSidenavModule,
+            MatIconModule,MatSelectModule,ReactiveFormsModule,MatDividerModule,
             MatIconModule,MatSelectModule,ReactiveFormsModule,MatDividerModule,MatSidenavModule,MatToolbarModule,MatListModule,MatMenuModule,MatDialogModule
             ,MatNativeDateModule,MatTableModule
         ]

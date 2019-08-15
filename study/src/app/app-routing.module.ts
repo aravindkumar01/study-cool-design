@@ -25,6 +25,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { UserLayoutComponent } from './user/user-layout/user-layout.component';
 import { UserHomeComponent } from './user/user-home/user-home.component';
 import { SubjectsComponent } from './user/subjects/subjects.component';
+import { UserCourseComponent } from './user/user-course/user-course.component';
 
 const routes: Routes = [
 
@@ -67,12 +68,22 @@ const routes: Routes = [
 
   { path: 'user', component: UserLayoutComponent,  
   children: [
-    { path: '', redirectTo: 'userhome', pathMatch: 'full' },
-    { path: 'userhome', component: UserHomeComponent  },
-    { path: 'subject', component: SubjectsComponent  }]}
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: 'home', component: UserHomeComponent  },
+    { path: 'subject', component: SubjectsComponent  },
+    {path:"course",component:UserCourseComponent},
+    { path: 'profile', component: ProfileComponent  }
+    
+  ]}
   
 
 ];
+/*{name:"Home",link:"/user/home",icon_name:"home"},
+    {name:"Course",link:"/user/course",icon_name:"account_box"},
+    {name:"Chats",link:"/user/chats",icon_name:"markunread_mailbox"},
+    {name:"Blogs",link:"/user/blogs",icon_name:"file_copy"},
+    {name:"Profile",link:"/user/profile",icon_name:"collections_bookmark "},
+    {name:"Logout",link:"/user/logout",icon_name:"note_add"}    */
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
