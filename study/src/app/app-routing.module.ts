@@ -22,6 +22,9 @@ import { SubjectComponent } from './admin/subject/subject.component';
 import { AddsubjectComponent } from './admin/subject/addsubject/addsubject.component';
 import { AddsylabusComponent } from './admin/sylabus/addsylabus/addsylabus.component';
 import { ProfileComponent } from './profile/profile.component';
+import { UserLayoutComponent } from './user/user-layout/user-layout.component';
+import { UserHomeComponent } from './user/user-home/user-home.component';
+import { SubjectsComponent } from './user/subjects/subjects.component';
 
 const routes: Routes = [
 
@@ -60,7 +63,13 @@ const routes: Routes = [
   data: { 
     expectedRole: 'ROLE_ADMIN',    
   }*/
-  }
+  },
+
+  { path: 'user', component: UserLayoutComponent,  
+  children: [
+    { path: '', redirectTo: 'userhome', pathMatch: 'full' },
+    { path: 'userhome', component: UserHomeComponent  },
+    { path: 'subject', component: SubjectsComponent  }]}
   
 
 ];

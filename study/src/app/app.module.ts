@@ -30,6 +30,10 @@ import { AddcourseComponent } from './admin/course/addcourse/addcourse.component
 import { SubjectComponent } from './admin/subject/subject.component';
 import { AddsubjectComponent } from './admin/subject/addsubject/addsubject.component';
 import { AddsylabusComponent } from './admin/sylabus/addsylabus/addsylabus.component';
+import { UserHomeComponent } from './user/user-home/user-home.component';
+import { UserLayoutComponent } from './user/user-layout/user-layout.component';
+import { UserMenuComponent } from './user/user-menu/user-menu.component';
+import { SubjectsComponent } from './user/subjects/subjects.component';
 @NgModule({
   declarations: [
     MenuComponent,
@@ -51,7 +55,11 @@ import { AddsylabusComponent } from './admin/sylabus/addsylabus/addsylabus.compo
     AddcourseComponent,
     SubjectComponent,
     AddsubjectComponent,
-    AddsylabusComponent
+    AddsylabusComponent,
+    UserHomeComponent,
+    UserLayoutComponent,
+    UserMenuComponent,
+    SubjectsComponent
   ],
   entryComponents: [AdduserComponent],
   imports: [
