@@ -35,6 +35,8 @@ import { UserLayoutComponent } from './user/user-layout/user-layout.component';
 import { UserMenuComponent } from './user/user-menu/user-menu.component';
 import { SubjectsComponent } from './user/subjects/subjects.component';
 import { UserCourseComponent } from './user/user-course/user-course.component';
+
+
 @NgModule({
   declarations: [
     MenuComponent,
