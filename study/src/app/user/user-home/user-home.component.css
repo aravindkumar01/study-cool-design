@@ -1,0 +1,11 @@
+hr.line{
+    margin-top:0;
+    
+}
+
+.title{
+    color: #738f93;
+    text-transform: uppercase;
+    line-height: 1.4;
+    font-weight: 400;
+}

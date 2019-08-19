@@ -20,3 +20,16 @@
     margin-bottom: 0;
     list-style-type: none;
   }
+
+  .example-tree-progress-bar {
+    margin-left: 30px;
+  }
+  
+  .mat-tree-node {
+    padding: 0;
+    white-space: nowrap;
+    font: 15px arial, sans-serif;
+    cursor: pointer;
+    min-height: 30px;
+  }
+

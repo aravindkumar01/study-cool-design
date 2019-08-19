@@ -34,9 +34,10 @@ import { UserHomeComponent } from './user/user-home/user-home.component';
 import { UserLayoutComponent } from './user/user-layout/user-layout.component';
 import { UserMenuComponent } from './user/user-menu/user-menu.component';
 import { SubjectsComponent } from './user/subjects/subjects.component';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { UserCourseComponent } from './user/user-course/user-course.component';
-
-
+import { DynamicDataSource, DynamicDatabase } from './user/tree/DynamicDataSource';
 @NgModule({
   declarations: [
     MenuComponent,
@@ -77,10 +78,10 @@ import { UserCourseComponent } from './user/user-course/user-course.component';
     MatSortModule
   ,ReactiveFormsModule,
    HttpClientModule 
-    ,JwtModule
+    ,JwtModule,NgxExtendedPdfViewerModule,MatProgressBarModule
   ],
   providers: [  { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
-    JwtHelperService],
+    JwtHelperService,DynamicDataSource,DynamicDatabase],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

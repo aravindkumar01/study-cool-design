@@ -22,8 +22,8 @@ export class UserMenuComponent implements OnInit {
   ];
 
   adminNav:Menu[]=[     
-    {name:"Home",link:"/user/home",icon_name:"home"},
-    {name:"Course",link:"/user/course",icon_name:"account_box"},
+    {name:"Home",link:"/user/home",icon_name:"home"},   
+    {name:"Sylabus",link:"/user/course",icon_name:"account_box"},
     {name:"Chats",link:"/user/chats",icon_name:"markunread_mailbox"},
     {name:"Blogs",link:"/user/blogs",icon_name:"file_copy"},
     {name:"Profile",link:"/user/profile",icon_name:"collections_bookmark "},

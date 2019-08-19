@@ -1,33 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { NestedTreeControl } from '@angular/cdk/tree';
-import { MatTreeNestedDataSource } from '@angular/material';
 
+import {FlatTreeControl} from '@angular/cdk/tree';
+import {Component, Injectable,OnInit} from '@angular/core';
+import { DynamicDatabase, DynamicFlatNode, DynamicDataSource } from '../tree/DynamicDataSource';
 
-interface FoodNode {
-  name: string;
-  children?: FoodNode[];
-}
-
-const TREE_DATA: FoodNode[] = [
-  {
-    name: 'Vegetables',
-    children: [
-      {
-        name: 'Green',
-        children: [
-          {name: 'Broccoli'},
-          {name: 'Brussel sprouts'},
-        ]
-      }, {
-        name: 'Orange',
-        children: [
-          {name: 'Pumpkins'},
-          {name: 'Carrots'},
-        ]
-      },
-    ]
-  },
-];
 @Component({
   selector: 'app-user-course',
   templateUrl: './user-course.component.html',
@@ -35,20 +10,30 @@ const TREE_DATA: FoodNode[] = [
 })
 export class UserCourseComponent implements OnInit {
 
- 
+  pageNumber:number=1;
+ pdf:string="/assets/mca.pdf"
 
+ constructor(database: DynamicDatabase) {
+  this.treeControl = new FlatTreeControl<DynamicFlatNode>(this.getLevel, this.isExpandable);
+  this.dataSource = new DynamicDataSource(this.treeControl, database);
 
-  treeControl = new NestedTreeControl<FoodNode>(node => node.children);
-  dataSource = new MatTreeNestedDataSource<FoodNode>();
+  this.dataSource.data = database.initialData();
+}
 
-  constructor() {
-    this.dataSource.data = TREE_DATA;
-  }
+treeControl: FlatTreeControl<DynamicFlatNode>;
 
-  hasChild = (_: number, node: FoodNode) => !!node.children && node.children.length > 0;
+dataSource: DynamicDataSource;
 
+getLevel = (node: DynamicFlatNode) => node.level;
+
+isExpandable = (node: DynamicFlatNode) => node.expandable;
+
+hasChild = (_: number, _nodeData: DynamicFlatNode) => _nodeData.expandable;
   ngOnInit() {
   }
 
-  
+  sylabus(subject:any)
+  {
+    this.pageNumber=40;
+  }
 }
