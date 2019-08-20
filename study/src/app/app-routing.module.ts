@@ -26,6 +26,7 @@ import { UserLayoutComponent } from './user/user-layout/user-layout.component';
 import { UserHomeComponent } from './user/user-home/user-home.component';
 import { SubjectsComponent } from './user/subjects/subjects.component';
 import { UserCourseComponent } from './user/user-course/user-course.component';
+import { ContentComponent } from './user/content/content.component';
 
 const routes: Routes = [
 
@@ -72,7 +73,8 @@ const routes: Routes = [
     { path: 'home', component: UserHomeComponent  },
     { path: 'subject', component: SubjectsComponent  },
     {path:"course",component:UserCourseComponent},
-    { path: 'profile', component: ProfileComponent  }
+    { path: 'profile', component: ProfileComponent  },
+    { path: 'content', component: ContentComponent  }
     
   ]}
   

@@ -9,3 +9,10 @@ hr.line{
     line-height: 1.4;
     font-weight: 400;
 }
+.mat-list-base .mat-list-item .mat-list-item-content, .mat-list-base .mat-list-option .mat-list-item-content {
+    display: block;
+}
+.list-item:hover {
+    cursor: pointer;
+    color:blue;
+  }

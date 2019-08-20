@@ -1,67 +1,23 @@
 <div class="container" style="margin-top:25px;" >
   <div class="row" >
    
-    <div class="col-sm-4">
+    <div class="col-sm-4" *ngFor="let item of demo | keyvalue">
 
         <mat-card class="example-card">
             <mat-card-header>
-             <mat-card-title class="title"><h5>First Year</h5></mat-card-title>
-             
+             <mat-card-title class="title"><h5>{{item.key}}</h5></mat-card-title>
+             <hr class="line">
             </mat-card-header>
-            <hr class="line">
-           <mat-card-content>
-              <mat-list>
-                  <mat-list-item>Item 1</mat-list-item>
-                  <mat-divider></mat-divider>
-                  <mat-list-item>Item 2</mat-list-item>
-                  <mat-divider></mat-divider>
-                  <mat-list-item>Item 3</mat-list-item>
+           
+           <mat-card-content class="list">
+              <mat-list  *ngFor="let i of item.value | keyvalue">
+                  <mat-list-item class="list-item">{{i.value.name}}</mat-list-item>  
+                  <hr class="line">                
                 </mat-list>
             </mat-card-content>
             
           </mat-card>
     </div>
     
-    <div class="col-sm-4">
-
-        <mat-card class="example-card">
-            <mat-card-header>
-             <mat-card-title class="title"><h5>First Year</h5></mat-card-title>
-             
-            </mat-card-header>
-            <hr class="line">
-           <mat-card-content>
-              <mat-list>
-                  <mat-list-item>Item 1</mat-list-item>
-                  <mat-divider></mat-divider>
-                  <mat-list-item>Item 2</mat-list-item>
-                  <mat-divider></mat-divider>
-                  <mat-list-item>Item 3</mat-list-item>
-                </mat-list>
-            </mat-card-content>
-            
-          </mat-card>
-    </div>
-   
-    <div class="col-sm-4">
-
-        <mat-card class="example-card">
-            <mat-card-header>
-             <mat-card-title class="title"><h5>First Year</h5></mat-card-title>
-             
-            </mat-card-header>
-            <hr class="line">
-           <mat-card-content>
-              <mat-list>
-                  <mat-list-item>Item 1</mat-list-item>
-                  <mat-divider></mat-divider>
-                  <mat-list-item>Item 2</mat-list-item>
-                  <mat-divider></mat-divider>
-                  <mat-list-item>Item 3</mat-list-item>
-                </mat-list>
-            </mat-card-content>
-            
-          </mat-card>
-    </div>
   </div>
 </div>
