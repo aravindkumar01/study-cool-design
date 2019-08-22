@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'src/app/admin/subject/model/subject';
+import { SubjectService } from 'src/app/admin/subject/service/subject.service';
+import { first } from 'rxjs/operators';
 
 export class demo{
   id:number;
@@ -12,25 +15,26 @@ export class demo{
 })
 export class UserHomeComponent implements OnInit {
 
-  demo:any= new Map<string, demo[]>([
-    ['First Year',[{id:1,name:"java"},{id:2,name:"C"},{id:1,name:"C++"}]],
-    ['Second Year',[{id:1,name:"java"},{id:2,name:"C"},{id:1,name:"C++"}]],
-    ['Third Year',[{id:1,name:"java"},{id:2,name:"C"},{id:1,name:"C++"}]]
-]);
-  constructor() { }
+  demo:any;
+  
+  constructor(private service:SubjectService) { }
 
   ngOnInit() {
- 
+    this.service.getSubjectListByCourseDash(1).pipe(first()).subscribe(subject => {  
+      console.log(subject)
+      this.demo=subject;
+    });
   }
 
-  getKeys(demo){
+  getKeys(demo:any){
     return Array.from(demo.keys());
   }
 
-  getValues(demo){
+  getValues(demo:any){
     return Array.from(demo.values().Array.from(v=>v.id));
   }
 
+  
 }
 
 
@@ -45,3 +49,9 @@ export class UserHomeComponent implements OnInit {
       
     });
 */
+
+/*demo:any= new Map<string, Subject[]>([
+    ['First Year',[{id:1,course_id:1,year:2,semster:"first",name:"java"},{id:1,course_id:1,year:2,semster:"first",name:"java"}]],
+    ['Second Year',[{id:1,course_id:1,year:2,semster:"first",name:"java"},{id:1,course_id:1,year:2,semster:"first",name:"java"},{id:1,course_id:1,year:2,semster:"first",name:"java"}]],
+    ['Third Year',[{id:1,course_id:1,year:2,semster:"first",name:"java"},{id:1,course_id:1,year:2,semster:"first",name:"java"},{id:1,course_id:1,year:2,semster:"first",name:"java"}]]
+]);*/

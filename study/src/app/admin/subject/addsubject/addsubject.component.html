@@ -31,7 +31,17 @@
               </mat-form-field>
               
               <br>
-               
+              <mat-form-field>
+                <i matPrefix class="fa fa-id-card-o" style="font-size:18px;">&nbsp;&nbsp;&nbsp;</i>
+                <mat-label>Unit</mat-label>
+                <mat-select  [formControl]="unitControl"  name="units" required [(ngModel)]="subject.units">
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor='let i of [1,2,3,4,5,6];let i = index' [value]="i">
+                    {{i}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="unitControl.hasError('required')">Please choose an units of subject</mat-error>
+              </mat-form-field><br>
               <mat-form-field>
                     <i matPrefix class="material-icons">assignment_turned_in&nbsp;&nbsp;</i>  
                 <mat-label>Semster</mat-label>

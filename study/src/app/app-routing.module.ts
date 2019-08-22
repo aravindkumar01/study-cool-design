@@ -24,7 +24,6 @@ import { AddsylabusComponent } from './admin/sylabus/addsylabus/addsylabus.compo
 import { ProfileComponent } from './profile/profile.component';
 import { UserLayoutComponent } from './user/user-layout/user-layout.component';
 import { UserHomeComponent } from './user/user-home/user-home.component';
-import { SubjectsComponent } from './user/subjects/subjects.component';
 import { UserCourseComponent } from './user/user-course/user-course.component';
 import { ContentComponent } from './user/content/content.component';
 
@@ -60,23 +59,28 @@ const routes: Routes = [
     { path: 'addsylabus', component: AddsylabusComponent },
     { path: 'profile', component: ProfileComponent  }
    
-  ]/*, canActivate: [RoleGuard], 
+  ], canActivate: [RoleGuard], 
   runGuardsAndResolvers: "always",
   data: { 
     expectedRole: 'ROLE_ADMIN',    
-  }*/
+  }
   },
 
   { path: 'user', component: UserLayoutComponent,  
   children: [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: UserHomeComponent  },
-    { path: 'subject', component: SubjectsComponent  },
     {path:"course",component:UserCourseComponent},
     { path: 'profile', component: ProfileComponent  },
-    { path: 'content', component: ContentComponent  }
+    { path: 'content/:id', component: ContentComponent  }
     
-  ]}
+  ], canActivate: [RoleGuard], 
+  runGuardsAndResolvers: "always",
+  data: { 
+    expectedRole: 'ROLE_STUDENT' 
+   
+  }
+}
   
 
 ];

@@ -42,3 +42,8 @@
     font-size: 12px;
     line-height: 12px;
 }
+
+.topics p:hover {
+  cursor: pointer;
+  color:blue;
+}

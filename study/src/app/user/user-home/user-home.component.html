@@ -11,7 +11,7 @@
            
            <mat-card-content class="list">
               <mat-list  *ngFor="let i of item.value | keyvalue">
-                  <mat-list-item class="list-item">{{i.value.name}}</mat-list-item>  
+                  <mat-list-item class="list-item"  [routerLink]="['/user/content', i.value.id]">{{i.value.name}}</mat-list-item>  
                   <hr class="line">                
                 </mat-list>
             </mat-card-content>

@@ -33,7 +33,6 @@ import { AddsylabusComponent } from './admin/sylabus/addsylabus/addsylabus.compo
 import { UserHomeComponent } from './user/user-home/user-home.component';
 import { UserLayoutComponent } from './user/user-layout/user-layout.component';
 import { UserMenuComponent } from './user/user-menu/user-menu.component';
-import { SubjectsComponent } from './user/subjects/subjects.component';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { UserCourseComponent } from './user/user-course/user-course.component';
@@ -64,7 +63,6 @@ import { ContentComponent } from './user/content/content.component';
     UserHomeComponent,
     UserLayoutComponent,
     UserMenuComponent,
-    SubjectsComponent,
     UserCourseComponent,
     ContentComponent
   ],

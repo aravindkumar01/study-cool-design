@@ -8,6 +8,13 @@ export class Url {
         
         return tokenPayload.sub;
     }
+    public static get userRole():string{
+        const token = localStorage.getItem('token');
+        // decode the token to get its payload
+        const tokenPayload = decode(token);
+        console.log(tokenPayload)
+        return tokenPayload.sub;
+    }
 
     public static get baseURL(): string {
          return "http://localhost:8091";

@@ -4,6 +4,7 @@ import { LoginService, LoginUser } from './service/login.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../admin/users/service/user.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Url } from '../URL/url';
 
 
 @Component({
@@ -37,9 +38,10 @@ export class LoginComponent implements OnInit {
   {    
    this.service.loginUserBoolean(this.users).subscribe(     
     data => {   
-      //alert(data);      
+      console.log(data);      
       localStorage.setItem('token',data.token);   
        //console.log(localStorage.getItem('token'));
+      // a:any=Url.userRole();
           if(data!=null)  
           {
             this.router.navigate(['/admin/users']);

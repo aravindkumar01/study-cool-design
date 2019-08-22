@@ -64,12 +64,9 @@ export class UsersComponent implements OnInit {
               },
               error => {
                 console.log(error);
-                if(error.error.text=="deleted")
-                {
+                if(error.error.text=="deleted"){
                   this.router.navigate(['/admin/users']);
-                }
-                else
-                {
+                }else{
                   alert(error.error.text);
                 }
               }

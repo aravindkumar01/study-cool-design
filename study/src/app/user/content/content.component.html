@@ -3,32 +3,16 @@
    
     <div class="col-sm-11">
         <mat-sidenav-container>
-            <mat-sidenav #sidenav [opened]="screenWidth > 840" [mode]="(screenWidth > 840) ? 'side' : 'over'" class="sidenav-header menu-header">
+            <mat-sidenav #sidenav [opened]="screenWidth > 840" [mode]="(screenWidth > 840) ? 'side' : 'over'" class="sidenav-header menu-header" >
                    
-                <div class="topics">
-                        <h6 class="title">Unit-1</h6>                        
-                        <p class="">An unordered list is a collection</p>
-                        <p>An unordered list is a collection</p>
-                        <p>An unordered list is a collection</p>
-                        <p>An unordered list is a collection</p>
-                        <p>An unordered list is a collection</p>
-                        <p>An unordered list is a collection</p>
-                        <p>An unordered list is a collection</p>
-                        <p>An unordered list is a collection</p>
-                        <hr>
-                    </div>
-                    <div class="topics">
-                      <h6 class="title">Unit-1</h6>                        
-                      <p class="">An unordered list is a collection</p>
-                      <p>An unordered list is a collection</p>
-                      <p>An unordered list is a collection</p>
-                      <p>An unordered list is a collection</p>
-                      <p>An unordered list is a collection</p>
-                      <p>An unordered list is a collection</p>
-                      <p>An unordered list is a collection</p>
-                      <p>An unordered list is a collection</p>
-                      <hr>
-                  </div>
+                <div class="topics" *ngFor="let i of unit">
+                    <h6 class="title">Unit-{{i+1}}</h6>
+                    <ng-container *ngFor="let sylabus of sylabus" >                      
+                      <p  *ngIf="i+1==sylabus.unit_number" class="">{{sylabus.topic}}</p>
+                    </ng-container>  
+                   <hr>
+            </div>   
+                                  
                     
              
             </mat-sidenav>

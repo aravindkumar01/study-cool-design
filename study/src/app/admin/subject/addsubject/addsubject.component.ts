@@ -36,7 +36,7 @@ export class AddsubjectComponent implements OnInit {
   nameControl = new FormControl('', [Validators.required]);
   yearControl = new FormControl('', [Validators.required]);
   semsterControl = new FormControl('', [Validators.required]);
-  
+    unitControl=new FormControl('', [Validators.required]);
   constructor(private service:SubjectService,private router: Router) { }
 
   ngOnInit() {

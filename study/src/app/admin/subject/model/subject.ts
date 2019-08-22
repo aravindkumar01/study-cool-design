@@ -7,5 +7,6 @@ export class Subject {
     name:string;
     year:number;
     semster:string;
+    units:number;
 
 }

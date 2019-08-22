@@ -20,7 +20,7 @@ export class AddcourseComponent implements OnInit {
   uni:Univercity=new Univercity();
   nameControl = new FormControl('', [Validators.required]);
   univercityControl = new FormControl('', Validators.required);
-  
+  yearsControl= new FormControl('', Validators.required);
   constructor(private service:CourseService,private router: Router,private u:UnivercityService) {
 
     this.u.getUniverictyList().subscribe(res =>

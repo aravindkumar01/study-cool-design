@@ -72,12 +72,14 @@ export class AdduserComponent implements OnInit {
   ngOnInit() {
     this.userId = localStorage.getItem("UserId");   
     if(this.userId!=null) {
+      alert("update");
       this.buttonName="Update";
        this.service.getUser(+ this.userId).pipe(first()).subscribe(user => {       
-        this.user=user;    
+        this.user=user;  
+    //  /   console.log(user);  
        });
     
-       // localStorage.removeItem("UserId");
+        localStorage.removeItem("UserId");
     }
     
   }
