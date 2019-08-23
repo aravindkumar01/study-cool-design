@@ -11,9 +11,8 @@ export class Url {
     public static get userRole():string{
         const token = localStorage.getItem('token');
         // decode the token to get its payload
-        const tokenPayload = decode(token);
-        console.log(tokenPayload)
-        return tokenPayload.sub;
+        const tokenPayload = decode(token);        
+        return tokenPayload.scopes;
     }
 
     public static get baseURL(): string {

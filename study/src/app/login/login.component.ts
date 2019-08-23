@@ -37,15 +37,17 @@ export class LoginComponent implements OnInit {
   login()
   {    
    this.service.loginUserBoolean(this.users).subscribe(     
-    data => {   
-      console.log(data);      
-      localStorage.setItem('token',data.token);   
-       //console.log(localStorage.getItem('token'));
-      // a:any=Url.userRole();
-          if(data!=null)  
+    data => {           
+      localStorage.setItem('token',data.token);        
+       var role=Url.userRole;      
+          if(data!=null && role=="ROLE_ADMIN")  
           {
             this.router.navigate(['/admin/users']);
-          }     
+          }
+          if(data!=null && role=="ROLE_STUDENT")  
+          {
+            this.router.navigate(['/user/home']);
+          }  
     },
     error => {
         window.location.reload();

@@ -49,6 +49,11 @@ export class SubjectService {
     const headers = new HttpHeaders({Authorization:token});
      return this.http.get<any>(this.baseURL+'/course/dash/'+id,{headers});
    }
+   getSubjectListByCourseTree(id:any) {
+    var token= Constants.token_prefix+ localStorage.getItem('token');
+    const headers = new HttpHeaders({Authorization:token});
+     return this.http.get<any>(this.baseURL+'/course/tree/'+id,{headers});
+   }
   getSubjectList() {
     var token= Constants.token_prefix+ localStorage.getItem('token');
     const headers = new HttpHeaders({Authorization:token});

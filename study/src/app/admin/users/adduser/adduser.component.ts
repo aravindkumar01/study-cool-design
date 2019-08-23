@@ -90,14 +90,10 @@ export class AdduserComponent implements OnInit {
           //alert(data);
          // console.log(data);
         
-        },
-        error => {
-          if(error.error.text=="Sucess")
-          {
+        },error => {
+          if(error.error.text=="Sucess"){
             this.router.navigate(['/admin/users']);
-          }
-          else
-          {
+          }else{
             alert(error.error.text);
           }
         }
@@ -110,7 +106,7 @@ export class AdduserComponent implements OnInit {
     if(this.userId!=null)
     {
      
-      console.log(this.user);
+     // console.log(this.user);
       this.user.id=Number.parseInt(this.userId);
       localStorage.removeItem("UserId");
       this.router.navigate['/admin/users'];

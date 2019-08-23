@@ -40,6 +40,12 @@ export class UserService {
      return this.http.get<User>(`${this.baseURL}/${id}`,{headers});
   }
 
+  getUserByUsername(username:string){
+    var token= Constants.token_prefix+ localStorage.getItem('token');
+    const headers = new HttpHeaders({Authorization:token});       
+     return this.http.get<any>(`${this.baseURL}/get/${username}`,{headers});
+  }
+
   createUser(user: any): Observable<any> {
     var token= Constants.token_prefix+ localStorage.getItem('token');
     const headers = new HttpHeaders({Authorization:token});    
