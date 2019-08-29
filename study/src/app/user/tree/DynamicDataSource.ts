@@ -1,26 +1,44 @@
-import {CollectionViewer, SelectionChange} from '@angular/cdk/collections';
-import {FlatTreeControl} from '@angular/cdk/tree';
-import {Component, Injectable} from '@angular/core';
-import {BehaviorSubject, merge, Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
+import { CollectionViewer, SelectionChange } from '@angular/cdk/collections';
+import { FlatTreeControl } from '@angular/cdk/tree';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, merge, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { SubjectService } from 'src/app/admin/subject/service/subject.service';
+import { CourseService } from 'src/app/admin/course/service/course.service';
+import { Course } from 'src/app/admin/course/model/course';
+import { Constants } from 'src/app/constants/constants';
 
 /** Flat node with expandable and level information */
 export class DynamicFlatNode {
   constructor(public item: string, public level = 1, public expandable = false,
-              public isLoading = false) {}
+    public isLoading = false) { }
 }
 
+@Injectable()
 export class DynamicDatabase {
+  c: Course;
+  dataMap = new Map<string, string[]>();
+  a: any[] = [];
+  rootLevelNodes = Constants.years(localStorage.getItem("years"));//['FirstYear', 'SecondYear','ThirdYear']    
 
-  constructor() {
+  constructor(private service: SubjectService, private course: CourseService) {
+    this.setValues();
   }
- dataMap = new Map<string, string[]>([
-     ['First Year',['java','c','c++']],
-     ['Second Year',['java','c','c++']],
-     ['Third Year',['java','c','c++']]
- ]);
- rootLevelNodes: string[] = ['First Year', 'Second Year','Third Year'];
-  
+
+  setValues() {
+    let id = localStorage.getItem("CourseId");
+    this.service.getSubjectListByCourseTree(id).subscribe((subject: Map<string, string[]>) => {
+      for (var key in subject) {
+        if (subject.hasOwnProperty(key)) {
+          this.a.push(key);
+          this.dataMap.set(key, subject[key]);
+        }
+      }
+    });
+    localStorage.removeItem("years");
+  }
+
+
   initialData(): DynamicFlatNode[] {
     return this.rootLevelNodes.map(name => new DynamicFlatNode(name, 0, true));
   }
@@ -46,7 +64,7 @@ export class DynamicDataSource {
   }
 
   constructor(private _treeControl: FlatTreeControl<DynamicFlatNode>,
-              private _database: DynamicDatabase) {}
+    private _database: DynamicDatabase) { }
 
   connect(collectionViewer: CollectionViewer): Observable<DynamicFlatNode[]> {
     this._treeControl.expansionModel.onChange.subscribe(change => {
@@ -89,7 +107,7 @@ export class DynamicDataSource {
       } else {
         let count = 0;
         for (let i = index + 1; i < this.data.length
-          && this.data[i].level > node.level; i++, count++) {}
+          && this.data[i].level > node.level; i++ , count++) { }
         this.data.splice(index + 1, count);
       }
 

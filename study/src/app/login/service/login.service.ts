@@ -28,20 +28,3 @@ export class LoginService {
 
 
   }
-
-/*
-this.http.post<any>(this.baseUrl, users).subscribe(     
-  data => {   
-    //alert(data);      
-    localStorage.setItem('token',data.token);   
-     console.log(localStorage.getItem('token'));
-        if(data!=null)  
-        {
-          this.router.navigate(['/admin/users']);
-        }         
-  },
-  error => {        
-  // alert(JSON.stringify(error.error));        
-  return true; 
-  });
-  return null;*/

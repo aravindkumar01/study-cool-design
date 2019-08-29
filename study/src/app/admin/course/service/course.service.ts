@@ -20,7 +20,7 @@ export class CourseService {
      
   }
 
-  getCourse(id: number){
+  getCourse(id: any){
     var token= Constants.token_prefix+ localStorage.getItem('token');
     const headers = new HttpHeaders({Authorization:token});
     return this.http.get<Course>(`${this.baseURL}/${id}`,{headers});

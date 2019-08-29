@@ -14,11 +14,7 @@ export class UnivercityComponent implements OnInit {
 
   univercity:Univercity;  //pass edit or delete user 
   univercityies:Univercity[];
-/*  univercityies:Univercity[]=[
-    { id:1,name:"Anna",address:"39,chennai",location:"chennai"} ,
-    { id:2,name:"periyar",address:"39,chennai",location:"chennai"},
-    { id:3,name:"Anna",address:"39,chennai",location:"chennai"}   
-  ];*/
+
  displayedColumns: string[] = ['id', 'name','address','location','edit','delete'];
   dataSource: MatTableDataSource<Univercity>;
 
@@ -34,7 +30,6 @@ export class UnivercityComponent implements OnInit {
   {
   
     this.service.getUniverictyList().pipe(first()).subscribe(univercity => {  
-      console.log(univercity);
       this.univercityies=univercity;
       this.dataSource = new MatTableDataSource(this.univercityies);
       this.dataSource.paginator = this.paginator;

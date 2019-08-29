@@ -4,6 +4,7 @@ import { SubjectService } from 'src/app/admin/subject/service/subject.service';
 import { first } from 'rxjs/operators';
 import { UserService } from 'src/app/admin/users/service/user.service';
 import { Url } from 'src/app/URL/url';
+import { Constants } from 'src/app/constants/constants';
 
 export class demo{
   id:number;
@@ -24,16 +25,21 @@ export class UserHomeComponent implements OnInit {
 
   ngOnInit() {
     
-    //get course list 
-    this.userService.getUserByUsername(Url.username).pipe(first()).subscribe(user => {       
-     this.cid=user.course_id;
-     //call subject list
-          this.service.getSubjectListByCourseDash(this.cid).pipe(first()).subscribe(subject => {  
-            console.log(subject)
-            this.demo=subject;
-          });
-    });
+    this.getCourseList();
     
+  }
+
+
+  getCourseList(){
+      //get course list 
+      this.userService.getUserByUsername(Url.username).pipe(first()).subscribe(user => {       
+        this.cid=user.course_id;
+        localStorage.setItem("CourseId",this.cid.toString());
+        //call subject list
+            this.service.getSubjectListByCourseDash(this.cid).pipe(first()).subscribe(subject => {              
+              this.demo=subject;             
+            });
+      });
   }
 
   getKeys(demo:any){
@@ -46,22 +52,3 @@ export class UserHomeComponent implements OnInit {
 
   
 }
-
-
-/*   *ngFor="let r of getKeys(demo)"
- this.demo.forEach((element,key )=> {
-
-      element.forEach(e => {
-        console.log(e.id);
-      });
-     
-      console.log("k"+key);  
-      
-    });
-*/
-
-/*demo:any= new Map<string, Subject[]>([
-    ['First Year',[{id:1,course_id:1,year:2,semster:"first",name:"java"},{id:1,course_id:1,year:2,semster:"first",name:"java"}]],
-    ['Second Year',[{id:1,course_id:1,year:2,semster:"first",name:"java"},{id:1,course_id:1,year:2,semster:"first",name:"java"},{id:1,course_id:1,year:2,semster:"first",name:"java"}]],
-    ['Third Year',[{id:1,course_id:1,year:2,semster:"first",name:"java"},{id:1,course_id:1,year:2,semster:"first",name:"java"},{id:1,course_id:1,year:2,semster:"first",name:"java"}]]
-]);*/

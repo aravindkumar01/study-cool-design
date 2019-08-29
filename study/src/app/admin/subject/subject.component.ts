@@ -43,8 +43,7 @@ export class SubjectComponent implements OnInit {
 
   subjectListByCourse(id:any)
   {
-    this.service.getSubjectListByCourse(id).pipe(first()).subscribe(subject => {  
-      console.log(subject);
+    this.service.getSubjectListByCourse(id).pipe(first()).subscribe(subject => {      
       this.subjectes=subject;
       this.dataSource = new MatTableDataSource(this.subjectes);
       this.dataSource.paginator = this.paginator;
@@ -61,9 +60,8 @@ export class SubjectComponent implements OnInit {
       this.subjectListByCourse(this.c_id);  
      
     }
-    else{ this.subjectList(); }
-  
-    localStorage.removeItem("CourseId");
+    else{ this.subjectList(); }  
+   
   }
 
   applyFilter(filterValue: string) {

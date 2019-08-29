@@ -47,18 +47,15 @@ export class AddsubjectComponent implements OnInit {
     if(SubjectId!=null) {      
       this.buttonName="Update";
        this.service.getSubject(+ SubjectId).pipe(first()).subscribe(subject => {   
-         console.log("single"+subject)
-           this.subject=subject;
+                   this.subject=subject;
            });
           localStorage.removeItem("SubjectId");
-          localStorage.removeItem("CourseId");
+         
     }
     
   }
-  save() {
-
-    this.subject.course_id=this.c_id;
-    console.log("save"+this.subject);
+  save() {    
+    this.subject.course_id=this.c_id;   
     this.service.createSubject(this.subject)  
       .subscribe(
         data => {

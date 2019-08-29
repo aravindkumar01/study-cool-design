@@ -75,8 +75,7 @@ export class AdduserComponent implements OnInit {
       alert("update");
       this.buttonName="Update";
        this.service.getUser(+ this.userId).pipe(first()).subscribe(user => {       
-        this.user=user;  
-    //  /   console.log(user);  
+        this.user=user;       
        });
     
         localStorage.removeItem("UserId");
@@ -88,7 +87,7 @@ export class AdduserComponent implements OnInit {
       .subscribe(
         data => {
           //alert(data);
-         // console.log(data);
+          console.log(data);
         
         },error => {
           if(error.error.text=="Sucess"){
@@ -102,15 +101,11 @@ export class AdduserComponent implements OnInit {
     
   }
   onSubmit() {
-    //alert(this.user);
-    if(this.userId!=null)
-    {
-     
-     // console.log(this.user);
+    
+    if(this.userId!=null){ 
       this.user.id=Number.parseInt(this.userId);
       localStorage.removeItem("UserId");
-      this.router.navigate['/admin/users'];
-     // this.save(); 
+      this.router.navigate['/admin/users'];     
     }
     this.save();         
     

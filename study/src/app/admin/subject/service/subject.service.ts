@@ -21,10 +21,16 @@ export class SubjectService {
      
   }
  
-  getSubject(id: number){
+  getSubject(id: any){
     var token= Constants.token_prefix+ localStorage.getItem('token');
     const headers = new HttpHeaders({Authorization:token});       
      return this.http.get<Subject>(`${this.baseURL}/${id}`,{headers});
+  }
+
+  getSubjectPageNumber(id: any,name:string){
+    var token= Constants.token_prefix+ localStorage.getItem('token');
+    const headers = new HttpHeaders({Authorization:token});       
+     return this.http.get<Subject>(`${this.baseURL}/${name}/${id}`,{headers});
   }
 
   createSubject(user: any): Observable<any> {

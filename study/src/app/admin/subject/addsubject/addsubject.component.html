@@ -52,9 +52,13 @@
                   </mat-option>
                 </mat-select>
                 <mat-error *ngIf="yearControl.hasError('required')">Please choose an semster</mat-error>
-              </mat-form-field>
-                
-               </div>   
+              </mat-form-field><br>
+              <mat-form-field>
+                <i matPrefix class="material-icons">collections_bookmark&nbsp;&nbsp;</i>         
+                  <input type="number" matInput placeholder="page_number" name="page_number" required [(ngModel)]="subject.page_number" value="1">
+             </mat-form-field>
+               </div> 
+
               </mat-card-content>  
       <mat-card-actions  align="center">
             <button type="submit"  mat-raised-button color="primary">{{buttonName}}</button>

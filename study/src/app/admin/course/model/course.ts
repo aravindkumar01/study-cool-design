@@ -5,4 +5,5 @@ export class Course {
     name:string;
     univercity:Univercity;
     years:number;
+    
 }

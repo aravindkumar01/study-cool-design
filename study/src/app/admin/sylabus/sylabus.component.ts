@@ -44,8 +44,7 @@ export class SylabusComponent implements OnInit {
   subjectListByCourse(id:any)
   {
     this.service.getSylabusListBySubject(id).pipe(first()).subscribe(sylabus => {  
-      console.log(sylabus);
-      this.sylabuses=sylabus;
+     this.sylabuses=sylabus;
       this.dataSource = new MatTableDataSource(this.sylabuses);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -94,8 +93,7 @@ export class SylabusComponent implements OnInit {
     }
 
     editSubject(sylabus:Sylabus)
-  {    
-    console.log(sylabus);
+  {  
     localStorage.removeItem("SylabusId");
     localStorage.setItem("SylabusId", sylabus.id.toString());
     this.router.navigate(['/admin/addsylabus']);

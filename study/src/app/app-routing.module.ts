@@ -26,6 +26,7 @@ import { UserLayoutComponent } from './user/user-layout/user-layout.component';
 import { UserHomeComponent } from './user/user-home/user-home.component';
 import { UserCourseComponent } from './user/user-course/user-course.component';
 import { ContentComponent } from './user/content/content.component';
+import { LogoutComponent } from './logout/logout/logout.component';
 
 const routes: Routes = [
 
@@ -57,7 +58,8 @@ const routes: Routes = [
     { path: 'addsubject', component: AddsubjectComponent},
     { path: 'sylabus', component: SylabusComponent },
     { path: 'addsylabus', component: AddsylabusComponent },
-    { path: 'profile', component: ProfileComponent  }
+    { path: 'profile', component: ProfileComponent  },
+    {path:'logout',component:LogoutComponent}
    
   ], canActivate: [RoleGuard], 
   runGuardsAndResolvers: "always",
@@ -72,7 +74,8 @@ const routes: Routes = [
     { path: 'home', component: UserHomeComponent  },
     {path:"course",component:UserCourseComponent},
     { path: 'profile', component: ProfileComponent  },
-    { path: 'content/:id', component: ContentComponent  }
+    { path: 'content/:id', component: ContentComponent  },
+    {path:'logout',component:LogoutComponent}
     
   ], canActivate: [RoleGuard], 
   runGuardsAndResolvers: "always",

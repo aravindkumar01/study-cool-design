@@ -38,6 +38,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { UserCourseComponent } from './user/user-course/user-course.component';
 import { DynamicDataSource, DynamicDatabase } from './user/tree/DynamicDataSource';
 import { ContentComponent } from './user/content/content.component';
+import { LogoutComponent } from './logout/logout/logout.component';
 @NgModule({
   declarations: [
     MenuComponent,
@@ -64,7 +65,8 @@ import { ContentComponent } from './user/content/content.component';
     UserLayoutComponent,
     UserMenuComponent,
     UserCourseComponent,
-    ContentComponent
+    ContentComponent,
+    LogoutComponent
   ],
   entryComponents: [AdduserComponent],
   imports: [

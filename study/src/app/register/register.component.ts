@@ -67,13 +67,11 @@ export class RegisterComponent implements OnInit {
     this.service.signupUser(this.user)  
       .subscribe(
         data => {      
-             // alert(data);
-           //   alert(JSON.stringify(data));
-         // console.log(data);
+           console.log(data);
          this.router.navigate(['/login']);
         },
         error => {
-         //   alert(error.error.text);
+         
             if(error.error.text=="Sucess")
             {
               this.router.navigate(['/login']);

@@ -6,9 +6,9 @@
                 </div>
                 <div class="user-info-block">
                     <div class="user-heading">
-                        <h3>Aravind Kumar</h3>
-                        <span class="help-block">Anna university, IN</span>
-                        <span class="help-block">Student</span>
+                        <h3>{{name | titlecase}}</h3>
+                        <span class="help-block">{{univercity | titlecase}} University, IN</span>
+                        <span class="help-block">{{role | titlecase }}</span>
                     </div>
                     <ul class="navigation">                       
                         <li class="active">
@@ -31,8 +31,8 @@
                         <div class="tab-content">                            
                             <div id="settings" class="tab-pane active example-form">
                                 <h3>Change Password</h3>
-                                <form >
-                                            <p>Please Enter Current Password Correctly</p>
+                                <form (ngSubmit)="onSubmit(oldpass.value, newpass.value)">
+                                            <p >{{response}}</p>
                                             <mat-form-field appearance="legacy" class="example-full-width">
                                                     <mat-icon matPrefix>edit</mat-icon>
                                                     <mat-label>&nbsp;&nbsp;Old Password</mat-label>
@@ -57,7 +57,7 @@
                                             <p *ngIf="notMatch" style="color: brown;">
                                                 Password  <strong>did't match</strong>
                                             </p> 
-                                        <button mat-flat-button *ngIf="btnView"  type="submit"  color="primary"  (click) = "onSubmit(oldpass.value, newpass.value)">Sumbit</button>
+                                        <button mat-flat-button *ngIf="btnView"  type="submit"  color="primary" >Sumbit</button>
                                 </form>
 
                             </div>

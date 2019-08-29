@@ -28,7 +28,9 @@ export class MenuComponent implements OnInit {
     {name:"Univercity",link:"/admin/univercity",icon_name:"markunread_mailbox"},
     {name:"Course",link:"/admin/course",icon_name:"file_copy"},
     {name:"Subject",link:"/admin/subject",icon_name:"collections_bookmark "},
-    {name:"Sylabus",link:"/admin/sylabus",icon_name:"note_add"}    
+    {name:"Sylabus",link:"/admin/sylabus",icon_name:"note_add"},
+    {name:"Logout",link:"/admin/logout",icon_name:"note_add"}
+
 
   ];
 

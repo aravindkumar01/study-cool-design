@@ -18,7 +18,7 @@ export class UserMenuComponent implements OnInit {
 
   headerNav:Menu[]=[
     {name:"Profile",link:"/user/profile",icon_name:"person_add"},
-    {name:"Logout",link:"/admin/logout",icon_name:"exit_to_app"}
+    {name:"Logout",link:"/user/logout",icon_name:"exit_to_app"}
   ];
 
   adminNav:Menu[]=[     
@@ -27,7 +27,7 @@ export class UserMenuComponent implements OnInit {
     {name:"Chats",link:"/user/chats",icon_name:"markunread_mailbox"},
     {name:"Blogs",link:"/user/blogs",icon_name:"file_copy"},
     {name:"Profile",link:"/user/profile",icon_name:"collections_bookmark "},
-    {name:"Logout",link:"/admin/sylabus",icon_name:"note_add"}    
+    {name:"Logout",link:"/user/logout",icon_name:"note_add"}    
 
   ];
 

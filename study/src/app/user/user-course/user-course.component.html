@@ -13,7 +13,7 @@
         <mat-card-content>
                 <div class="row">
                     <div class="col-sm-3">  
-                     <h3><u>MCA Sylabus</u></h3>
+                     <h3><u>{{topic}} Sylabus</u></h3>
                       <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
                         <ul>
                         <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding (click)="sylabus(node.item)">
@@ -35,7 +35,7 @@
                       </mat-tree>
                   </div>
                   <div class="col-sm-9">
-                    <ngx-extended-pdf-viewer [src]="pdf" useBrowserLocale="true" height="80vh" [page]='pageNumber'> </ngx-extended-pdf-viewer>
+                    <ngx-extended-pdf-viewer [src]="pdf" useBrowserLocale="true" height="80vh" [(page)]='pageNumber' > </ngx-extended-pdf-viewer>
                   </div>
                 </div>
         </mat-card-content>

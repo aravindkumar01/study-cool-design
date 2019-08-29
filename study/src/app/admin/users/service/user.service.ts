@@ -1,21 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 import { HttpHeaders } from '@angular/common/http';
 import { User } from '../modal/user';
 import { Url } from 'src/app/URL/url';
 import { Constants } from 'src/app/constants/constants';
-import { catchError, tap } from 'rxjs/operators';
 
-
-
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type':  'application/json',
-    'Access-Control-Allow-Origin':'*'
-  })
-};
 
 
 @Injectable({
@@ -57,6 +48,12 @@ export class UserService {
     return this.http.post(url, user);
   }
 
+  passwordChange(user: any) {
+    var token= Constants.token_prefix+ localStorage.getItem('token');
+    const headers = new HttpHeaders({Authorization:token});    
+    return this.http.post(this.baseURL+"/password", user,{headers});
+  }
+
 
   getUsersList() {
    var token= Constants.token_prefix+ localStorage.getItem('token');
@@ -68,9 +65,5 @@ export class UserService {
    var token= Constants.token_prefix+ localStorage.getItem('token');
    const headers = new HttpHeaders({Authorization:token});   
     return this.http.delete(this.baseURL+'/'+username,{headers});  
-     
-  
   }
-
- 
 }

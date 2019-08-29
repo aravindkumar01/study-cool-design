@@ -8,5 +8,6 @@ export class Subject {
     year:number;
     semster:string;
     units:number;
+    page_number:number;
 
 }
