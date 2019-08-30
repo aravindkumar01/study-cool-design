@@ -48,6 +48,10 @@ export class LoginComponent implements OnInit {
           {
             this.router.navigate(['/user/home']);
           }  
+          if(data!=null && role=="ROLE_STAFF")  
+          {
+            this.router.navigate(['/staff/home']);
+          }  
     },
     error => {
         window.location.reload();

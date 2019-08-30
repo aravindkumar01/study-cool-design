@@ -23,13 +23,29 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/bootstrap-markdown/css/bootstrap-markdown.min.css",
+              "node_modules/font-awesome/css/font-awesome.css",
+              "node_modules/prismjs/themes/prism.css",
+              "node_modules/prismjs/themes/prism-okaidia.css",
+             "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css"
             ],
             "scripts": [
               "node_modules/ngx-extended-pdf-viewer/assets/pdf.js",
               "node_modules/ngx-extended-pdf-viewer/assets/pdf.worker.js",
-              "node_modules/ngx-extended-pdf-viewer/assets/viewer.js"
-            ]
+              "node_modules/ngx-extended-pdf-viewer/assets/viewer.js",
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/bootstrap-markdown/js/bootstrap-markdown.js",
+              "node_modules/prismjs/prism.js",
+              "node_modules/prismjs/components/prism-css.min.js",
+              "node_modules/prismjs/components/prism-javascript.min.js",
+              "node_modules/prismjs/components/prism-typescript.min.js",
+              "node_modules/prismjs/prism.js",
+              "node_modules/prismjs/components/prism-csharp.min.js",
+              "node_modules/prismjs/components/prism-css.min.js",
+             "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js"
+                        ]
           },
           "configurations": {
             "production": {

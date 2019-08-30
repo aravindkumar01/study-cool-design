@@ -27,6 +27,10 @@ import { UserHomeComponent } from './user/user-home/user-home.component';
 import { UserCourseComponent } from './user/user-course/user-course.component';
 import { ContentComponent } from './user/content/content.component';
 import { LogoutComponent } from './logout/logout/logout.component';
+import { StaffHomeComponent } from './staff/staff-home/staff-home.component';
+import { StaffLayoutComponent } from './staff/staff-layout/staff-layout.component';
+import { BlogsComponent } from './blogs/blogs.component';
+import { BlogWriterComponent } from './blogs/blog-writer/blog-writer.component';
 
 const routes: Routes = [
 
@@ -81,6 +85,22 @@ const routes: Routes = [
   runGuardsAndResolvers: "always",
   data: { 
     expectedRole: 'ROLE_STUDENT' 
+   
+  }
+}
+  , { path: 'staff', component: StaffLayoutComponent,  
+  children: [
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: 'home', component: StaffHomeComponent  },
+    { path: 'blog', component: BlogsComponent  },
+    { path: 'blog/writer', component: BlogWriterComponent  },
+    { path: 'profile', component: ProfileComponent  },
+    {path:'logout',component:LogoutComponent}
+    
+  ], canActivate: [RoleGuard], 
+  runGuardsAndResolvers: "always",
+  data: { 
+    expectedRole: 'ROLE_STAFF' 
    
   }
 }

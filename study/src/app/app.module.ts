@@ -39,6 +39,15 @@ import { UserCourseComponent } from './user/user-course/user-course.component';
 import { DynamicDataSource, DynamicDatabase } from './user/tree/DynamicDataSource';
 import { ContentComponent } from './user/content/content.component';
 import { LogoutComponent } from './logout/logout/logout.component';
+import { StaffLayoutComponent } from './staff/staff-layout/staff-layout.component';
+import { StaffHomeComponent } from './staff/staff-home/staff-home.component';
+import { StaffMenuComponent } from './staff/staff-menu/staff-menu.component';
+import { BlogsComponent } from './blogs/blogs.component';
+import { BlogWriterComponent } from './blogs/blog-writer/blog-writer.component';
+import { AngularMarkdownEditorModule } from 'angular-markdown-editor';
+
+import { MarkdownModule, MarkedOptions, MarkedRenderer } from 'ngx-markdown';
+
 @NgModule({
   declarations: [
     MenuComponent,
@@ -66,7 +75,14 @@ import { LogoutComponent } from './logout/logout/logout.component';
     UserMenuComponent,
     UserCourseComponent,
     ContentComponent,
-    LogoutComponent
+    LogoutComponent,
+    StaffLayoutComponent,
+    StaffHomeComponent,
+    StaffMenuComponent,
+    BlogsComponent,
+    BlogWriterComponent
+   
+    
   ],
   entryComponents: [AdduserComponent],
   imports: [
@@ -80,9 +96,28 @@ import { LogoutComponent } from './logout/logout/logout.component';
     MatSortModule
   ,ReactiveFormsModule,
    HttpClientModule 
-    ,JwtModule,NgxExtendedPdfViewerModule,MatProgressBarModule
+    ,JwtModule,NgxExtendedPdfViewerModule,MatProgressBarModule,AngularMarkdownEditorModule.forRoot({
+      iconlibrary: 'glyph'
+    }),
+   
+    MarkdownModule.forRoot({      
+      markedOptions: {
+        provide: MarkedOptions,
+        useValue: {
+          sanitize: true,
+          renderer: new MarkedRenderer(),
+          gfm: true,
+          tables: true,
+          breaks: true,
+          pedantic: false,
+          smartLists: true,
+          smartypants: false,
+        },
+      },
+    }),
+   
   ],
-  providers: [  { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+  providers: [  { provide: JWT_OPTIONS, useValue: JWT_OPTIONS,  },
     JwtHelperService,DynamicDataSource,DynamicDatabase],
   bootstrap: [AppComponent]
 })

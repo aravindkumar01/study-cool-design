@@ -10,6 +10,8 @@ export class DashboardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    //https://bootsnipp.com/snippets/Ezn47
+    // /dash view 
   }
 
 }

@@ -5,29 +5,27 @@ import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-user-menu',
-  templateUrl: './user-menu.component.html',
-  styleUrls: ['./user-menu.component.css']
+  selector: 'app-staff-menu',
+  templateUrl: './staff-menu.component.html',
+  styleUrls: ['./staff-menu.component.css']
 })
-export class UserMenuComponent implements OnInit {
+export class StaffMenuComponent implements OnInit {
+
 
   ngOnInit() {
-    
   }
   mobileQuery: MediaQueryList;
 
   headerNav:Menu[]=[
-    {name:"Profile",link:"/user/profile",icon_name:"person_add"},
-    {name:"Logout",link:"/user/logout",icon_name:"exit_to_app"}
+    {name:"Profile",link:"/staff/profile",icon_name:"person_add"},
+    {name:"Logout",link:"/staff/logout",icon_name:"exit_to_app"}
   ];
 
   adminNav:Menu[]=[     
-    {name:"Home",link:"/user/home",icon_name:"home"},   
-    {name:"Sylabus",link:"/user/course",icon_name:"account_box"},
-    
-    {name:"Blogs",link:"/user/blogs",icon_name:"file_copy"},
-    {name:"Profile",link:"/user/profile",icon_name:"collections_bookmark "},
-    {name:"Logout",link:"/user/logout",icon_name:"note_add"}    
+    {name:"Home",link:"/staff/home",icon_name:"home"},       
+    {name:"Blogs",link:"/staff/blogs",icon_name:"file_copy"},
+    {name:"Profile",link:"/staff/profile",icon_name:"collections_bookmark "},
+    {name:"Logout",link:"/staff/logout",icon_name:"note_add"}    
 
   ];
 
@@ -48,5 +46,4 @@ export class UserMenuComponent implements OnInit {
  
 
   shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
-
 }

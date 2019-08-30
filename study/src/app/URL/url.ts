@@ -37,16 +37,20 @@ export class Url {
     }
     public static get courseUrl(): string {
         return "/course";
-        }
+    }
 
-        public static get subjectUrl(): string {
-            return "/subject";
-            }
-            public static get sylabusUrl(): string {
-                return "/sylabus";
-                }
-                public static get contentUrl(): string {
-                    return "/content";
-                    }
+    public static get subjectUrl(): string {
+         return "/subject";
+      }
+      public static get sylabusUrl(): string {
+            return "/sylabus";
+      }
+      public static get contentUrl(): string {
+            return "/content";
+       }
+
+       public static get blogsUrl(): string {
+        return "/blogs";
+   }
        
 }
