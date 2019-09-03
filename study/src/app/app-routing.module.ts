@@ -31,6 +31,7 @@ import { StaffHomeComponent } from './staff/staff-home/staff-home.component';
 import { StaffLayoutComponent } from './staff/staff-layout/staff-layout.component';
 import { BlogsComponent } from './blogs/blogs.component';
 import { BlogWriterComponent } from './blogs/blog-writer/blog-writer.component';
+import { BlogReaderComponent } from './blogs/blog-reader/blog-reader.component';
 
 const routes: Routes = [
 
@@ -63,6 +64,9 @@ const routes: Routes = [
     { path: 'sylabus', component: SylabusComponent },
     { path: 'addsylabus', component: AddsylabusComponent },
     { path: 'profile', component: ProfileComponent  },
+    { path: 'blogs', component: BlogsComponent  },
+    { path: 'blog/writer', component: BlogWriterComponent  },
+    { path: 'blog/:id', component: BlogReaderComponent  },
     {path:'logout',component:LogoutComponent}
    
   ], canActivate: [RoleGuard], 
@@ -77,6 +81,9 @@ const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: UserHomeComponent  },
     {path:"course",component:UserCourseComponent},
+    { path: 'blogs', component: BlogsComponent  },
+    { path: 'blog/writer', component: BlogWriterComponent  },
+    { path: 'blog/:id', component: BlogReaderComponent  },
     { path: 'profile', component: ProfileComponent  },
     { path: 'content/:id', component: ContentComponent  },
     {path:'logout',component:LogoutComponent}
@@ -92,8 +99,9 @@ const routes: Routes = [
   children: [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: StaffHomeComponent  },
-    { path: 'blog', component: BlogsComponent  },
+    { path: 'blogs', component: BlogsComponent  },
     { path: 'blog/writer', component: BlogWriterComponent  },
+    { path: 'blog/:id', component: BlogReaderComponent  },
     { path: 'profile', component: ProfileComponent  },
     {path:'logout',component:LogoutComponent}
     

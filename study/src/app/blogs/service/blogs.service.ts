@@ -19,12 +19,22 @@ export class BlogsService {
   ngOnint(){
      
   }
-
+  getBlog(id: any){
+    var token= Constants.token_prefix+ localStorage.getItem('token');
+    const headers = new HttpHeaders({Authorization:token});
+    return this.http.get<Blogs>(`${this.baseURL}/${id}`,{headers});
+  }
   
   createBlogs(blogs: any){   
     var token= Constants.token_prefix+ localStorage.getItem('token');
     const headers = new HttpHeaders({Authorization:token});    
     return this.http.post(this.baseURL, blogs,{headers});
+  }
+
+  getBlogsListByDash() {
+    var token= Constants.token_prefix+ localStorage.getItem('token');
+    const headers = new HttpHeaders({Authorization:token});       
+    return this.http.get<Blogs[]>(this.baseURL+'/dash',{headers});
   }
   
 

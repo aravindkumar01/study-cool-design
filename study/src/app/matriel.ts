@@ -17,16 +17,17 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatTreeModule} from '@angular/material/tree';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
         imports: [   MatFormFieldModule,MatButtonModule ,MatInputModule,MatCardModule,MatIconModule
             ,MatSelectModule,ReactiveFormsModule,MatDividerModule,MatSidenavModule,MatListModule,MatMenuModule,MatNativeDateModule,MatTableModule,MatDialogModule
-            ,MatTreeModule,MatCheckboxModule,MatExpansionModule
+            ,MatTreeModule,MatCheckboxModule,MatExpansionModule,MatGridListModule
         ],
         exports:[MatFormFieldModule,MatButtonModule,MatInputModule,MatCardModule,
             MatIconModule,MatSelectModule,ReactiveFormsModule,MatDividerModule,
             MatIconModule,MatSelectModule,ReactiveFormsModule,MatDividerModule,MatSidenavModule,MatToolbarModule,MatListModule,MatMenuModule,MatDialogModule
-            ,MatNativeDateModule,MatTableModule,MatTreeModule,MatCheckboxModule,MatExpansionModule
+            ,MatNativeDateModule,MatTableModule,MatTreeModule,MatCheckboxModule,MatExpansionModule,MatGridListModule
         ]
 
   })

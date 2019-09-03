@@ -130,9 +130,8 @@ export class BlogWriterComponent implements OnInit {
     this.blogs.username=Url.username;
     this.blogs.content=this.markdownText;
     this.servcie.createBlogs(this.blogs).pipe(first()) .subscribe(
-      data => {
-        alert(data);     
-      },
+      data => {  alert(data); 
+         },
       error => {
         console.log(error);         
         alert(error.error.text);

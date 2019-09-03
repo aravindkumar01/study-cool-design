@@ -47,6 +47,7 @@ import { BlogWriterComponent } from './blogs/blog-writer/blog-writer.component';
 import { AngularMarkdownEditorModule } from 'angular-markdown-editor';
 
 import { MarkdownModule, MarkedOptions, MarkedRenderer } from 'ngx-markdown';
+import { BlogReaderComponent } from './blogs/blog-reader/blog-reader.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { MarkdownModule, MarkedOptions, MarkedRenderer } from 'ngx-markdown';
     StaffHomeComponent,
     StaffMenuComponent,
     BlogsComponent,
-    BlogWriterComponent
+    BlogWriterComponent,
+    BlogReaderComponent
    
     
   ],
