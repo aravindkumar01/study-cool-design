@@ -1,0 +1,41 @@
+<div fxLayout="row" fxLayoutAlign="center " class="login-main" style="margin-top: 25px;">
+    <div class="col-md-4"></div>
+    <div class="col-md-4" fxLayoutAlign="center ">
+  
+  <mat-card class="example-card" class="text-center">
+      <form class="example-form"  (ngSubmit)="onSubmit()">
+      <mat-card-header color="primary" style="text-align:center;">
+        <mat-card-title style="margin-left:45px;">Add new Role</mat-card-title><br>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <mat-card-content style="margin-top: 20px;">
+            <div class="example-container" >
+              
+                <mat-form-field>
+                    <i matPrefix class="material-icons">collections_bookmark&nbsp;&nbsp;</i>         
+                      <input type="text" matInput placeholder="role_Name" [formControl]="nameControl" name="name" required [(ngModel)]="role.name" >
+                      <mat-error *ngIf="nameControl.hasError('required')">Please provide role name</mat-error>              
+               </mat-form-field>
+               <br>
+               <mat-form-field>
+                  <i matPrefix class="material-icons">contacts   &nbsp;&nbsp;  </i>
+                     <input type="text" matInput placeholder="role description" [formControl]="roleControl" name="description" required [(ngModel)]="role.description">
+                  <mat-error *ngIf="roleControl.hasError('required')">Please provide role description</mat-error>              
+             </mat-form-field>
+  
+             <br>
+             
+               </div>   
+              </mat-card-content>
+      <mat-card-actions  align="center">
+            <button type="submit"  mat-raised-button color="primary">{{buttonName}}</button>
+        
+      </mat-card-actions>
+      <mat-card-footer></mat-card-footer>
+    </form>
+    </mat-card>
+    
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+  

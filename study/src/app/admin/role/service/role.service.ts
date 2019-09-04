@@ -1,53 +1,56 @@
 import { Injectable } from '@angular/core';
 import { Url } from 'src/app/URL/url';
-import { Univercity } from '../model/univercity';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { Constants } from 'src/app/constants/constants';
+import { Role } from '../model/role';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UnivercityService {
+export class RoleService {
+ 
+  
 
-  private baseURL=Url.baseURL+Url.restUrl+Url.univercityUrl;
-  constructor(private http: HttpClient) {
+  private baseURL=Url.baseURL+Url.restUrl+Url.roleUrl;
+  constructor(private http: HttpClient) { }
+
 
   
-   }
-
-  ngOnint(){
-     
-  }
-
-  getUnivercity(id: number){
+  getRole(id: number){
     var token= Constants.token_prefix+ localStorage.getItem('token');
     const headers = new HttpHeaders({Authorization:token});
-    return this.http.get<Univercity>(`${this.baseURL}/${id}`,{headers});
+    return this.http.get<Role>(`${this.baseURL}/${id}`,{headers});
   }
 
-  createUnivercity(univercity: any){   
+  createRole(role: any){   
     var token= Constants.token_prefix+ localStorage.getItem('token');
     const headers = new HttpHeaders({Authorization:token});    
-    return this.http.post(this.baseURL, univercity,{headers});
+    return this.http.post(this.baseURL, role,{headers});
   }
 
-  updateUnivericty(univercity: any) {
+  updateRole(role: any) {
     var token= Constants.token_prefix+ localStorage.getItem('token');
     const headers = new HttpHeaders({Authorization:token});    
-    return this.http.post(this.baseURL, univercity,{headers});
+    return this.http.post(this.baseURL, role,{headers});
   }
 
 
-  getUniverictyList() {
+  getRoleList() {
     var token= Constants.token_prefix+ localStorage.getItem('token');
     const headers = new HttpHeaders({Authorization:token});       
-    return this.http.get<Univercity[]>(this.baseURL);
+    return this.http.get<Role[]>(this.baseURL);
   }
 
-  deleteUnivercity(id: number){
+  getRoleListRegs() {
+    var token= Constants.token_prefix+ localStorage.getItem('token');
+    const headers = new HttpHeaders({Authorization:token});       
+    return this.http.get<Role[]>(this.baseURL+'/regs');
+  }
+
+  deleteRole(id: number){
     var token= Constants.token_prefix+ localStorage.getItem('token');
     const headers = new HttpHeaders({Authorization:token});       
     return this.http.delete(`${this.baseURL}/${id}`,{headers});
   }
+
 }

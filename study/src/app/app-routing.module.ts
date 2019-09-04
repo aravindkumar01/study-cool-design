@@ -32,6 +32,8 @@ import { StaffLayoutComponent } from './staff/staff-layout/staff-layout.componen
 import { BlogsComponent } from './blogs/blogs.component';
 import { BlogWriterComponent } from './blogs/blog-writer/blog-writer.component';
 import { BlogReaderComponent } from './blogs/blog-reader/blog-reader.component';
+import { RoleComponent } from './admin/role/role.component';
+import { AddroleComponent } from './admin/role/addrole/addrole.component';
 
 const routes: Routes = [
 
@@ -64,6 +66,8 @@ const routes: Routes = [
     { path: 'sylabus', component: SylabusComponent },
     { path: 'addsylabus', component: AddsylabusComponent },
     { path: 'profile', component: ProfileComponent  },
+    { path: 'role', component: RoleComponent  },
+    { path: 'role/:id', component: AddroleComponent  },
     { path: 'blogs', component: BlogsComponent  },
     { path: 'blog/writer', component: BlogWriterComponent  },
     { path: 'blog/:id', component: BlogReaderComponent  },

@@ -8,4 +8,7 @@ export class User {
     mobile:number;
     role:string;
     course_id:number;
+    univercity_id:number;
+   
+    
 }

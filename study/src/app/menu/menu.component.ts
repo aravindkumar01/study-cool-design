@@ -25,6 +25,7 @@ export class MenuComponent implements OnInit {
   adminNav:Menu[]=[     
     {name:"Dashboard",link:"/admin/dashboard",icon_name:"home"},
     {name:"Users",link:"/admin/users",icon_name:"account_box"},
+    {name:"Roles",link:"/admin/role",icon_name:"account_box"},
     {name:"Univercity",link:"/admin/univercity",icon_name:"markunread_mailbox"},
     {name:"Course",link:"/admin/course",icon_name:"file_copy"},
     {name:"Subject",link:"/admin/subject",icon_name:"collections_bookmark "},

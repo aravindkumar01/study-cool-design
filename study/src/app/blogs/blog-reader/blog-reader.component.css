@@ -4,8 +4,16 @@
     margin-right: 10px;
 }
 
-h2{
-    font-family: "Times New Roman", Times, serif;
+
+
+h1,h2,h3{
+    font-weight:800;
+    font-family:'Open Sans',arial,sans-serif;
     margin-top: 0px;
     margin-bottom: 3px;
-}
+    font-size: 27px;
+ }
+
+ small.text-muted {
+    font-family:courier,courier-new,monospace;
+  }

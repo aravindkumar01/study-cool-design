@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MarkdownService } from 'ngx-markdown';
 import { BlogsService } from '../service/blogs.service';
 import { Blogs } from '../model/blogs';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-blog-reader',
@@ -12,6 +13,7 @@ import { Blogs } from '../model/blogs';
 })
 export class BlogReaderComponent implements OnInit {
 
+  likes:number;
   blog:Blogs;
   templateForm: FormGroup;
   markdownText: string;
@@ -24,9 +26,11 @@ export class BlogReaderComponent implements OnInit {
       this.id = params['id'];
     });
 
-    this.service.getBlog(this.id).subscribe(blogs => {  
+    this.service.getBlog(this.id).subscribe((blogs:Blogs)=> {  
+      console.log(blogs);
       this.blog=blogs;      
-      this.markdownText =this.blog.content;    
+      this.markdownText =this.blog.content;   
+      this.likes=this.blog.likes; 
     });
 
    
@@ -41,5 +45,21 @@ export class BlogReaderComponent implements OnInit {
       body: [markdownText],
       isPreview: [true]
     });
+  }
+
+
+  like(){
+      if(this.likes==this.blog.likes ){
+        this.blog.likes+=1;
+        this.service.createBlogs(this.blog).pipe(first()) .subscribe(
+          data => {  alert(data); 
+             },
+          error => {
+            console.log(error);         
+            //alert(error.error.text);
+            
+          });
+
+      }
   }
 }

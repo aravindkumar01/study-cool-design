@@ -22,7 +22,7 @@ export class StaffMenuComponent implements OnInit {
   ];
 
   adminNav:Menu[]=[     
-    {name:"Home",link:"/staff/home",icon_name:"home"},       
+    // {name:"Home",link:"/staff/home",icon_name:"home"},       
     {name:"Blogs",link:"/staff/blogs",icon_name:"file_copy"},
     {name:"Profile",link:"/staff/profile",icon_name:"collections_bookmark "},
     {name:"Logout",link:"/staff/logout",icon_name:"note_add"}    

@@ -46,6 +46,13 @@ export class CourseService {
     return this.http.get<any[]>(this.baseURL,{headers});
   }
 
+  getListByUnivrcity(id:number) {
+    var token= Constants.token_prefix+ localStorage.getItem('token');
+    const headers = new HttpHeaders({Authorization:token});       
+    return this.http.get<any[]>(this.baseURL+'/univercity/'+id);
+  }
+
+
   deleteCourse(id: number){
     var token= Constants.token_prefix+ localStorage.getItem('token');
     const headers = new HttpHeaders({Authorization:token});       

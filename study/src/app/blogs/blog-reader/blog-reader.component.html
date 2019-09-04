@@ -1,13 +1,29 @@
 <div class="row">
-    <div class="col-sm-2"></div>
+    <div class="col-sm-2">
+      
+    </div>
     <div class="col-sm-8">
-        <hr>
-        <h2 class="col-sm-12">{{blog.tittle}}</h2>
-        <p style="margin-left: 19px;">{{blog.tags}}</p>
-        <hr>
-        <div class="result-preview outline">
-          <markdown [data]="markdownText"></markdown>
+       
+        <div class="col-sm-10">
+            <hr>
+          <h3>{{blog.tittle}}</h3>
+          <h4><span class="label label-default">{{blog.tags}}</span></h4><h4>
+          <small class="text-muted">{{blog.createDateTime}} / <a  class="text-muted"  >{{blog.username}} / </a>
+            <button mat-icon-button color="warn" aria-label="Example icon-button with a heart icon" (click)="like()">
+                <mat-icon>favorite</mat-icon>{{blog.likes}} hearts 
+              </button>
+          </small>
+          </h4>
+           
+          <hr>
+        </div>
+        <br>
+        <div class="result-preview outline col-sm-12">
+          <markdown [data]="markdownText"></markdown> 
         </div>
     </div>
-    <div class="col-sm-2"></div>
+    <div class="col-sm-2">
+
+      
+    </div>
   </div>

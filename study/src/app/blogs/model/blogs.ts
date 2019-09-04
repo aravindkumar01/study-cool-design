@@ -6,4 +6,6 @@ export class Blogs {
     tags:string;
     content:string;
     username:string;
+    createDateTime:any;
+    likes:number;
 }

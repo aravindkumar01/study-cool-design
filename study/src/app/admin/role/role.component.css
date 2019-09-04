@@ -1,0 +1,28 @@
+.card-postion
+{
+    margin-top: 40px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+ 
+
+  .example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}
+
+                    
+th{
+ color:black;
+}
+

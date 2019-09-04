@@ -20,8 +20,7 @@ export class BlogsComponent implements OnInit {
 
   setDash(limt:any){
           this.service.getBlogsListByDash().subscribe(blogs => {  
-            this.blogs=blogs;      
-            console.log(this.blogs);      
+            this.blogs=blogs; 
           });
   }
 }

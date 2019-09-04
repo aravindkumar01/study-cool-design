@@ -50,7 +50,9 @@ export class LoginComponent implements OnInit {
           }  
           if(data!=null && role=="ROLE_STAFF")  
           {
-            this.router.navigate(['/staff/home']);
+            //this.router.navigate(['/staff/home']);
+            
+            this.router.navigate(['/staff/blogs']);
           }  
     },
     error => {
