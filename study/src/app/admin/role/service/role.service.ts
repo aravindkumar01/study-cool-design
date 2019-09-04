@@ -38,7 +38,7 @@ export class RoleService {
   getRoleList() {
     var token= Constants.token_prefix+ localStorage.getItem('token');
     const headers = new HttpHeaders({Authorization:token});       
-    return this.http.get<Role[]>(this.baseURL);
+    return this.http.get<Role[]>(this.baseURL,{headers});
   }
 
   getRoleListRegs() {
