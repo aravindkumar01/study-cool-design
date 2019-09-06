@@ -52,8 +52,12 @@ export class Url {
        public static get blogsUrl(): string {
         return "/blogs";
    }
-   public static get roleUrl(): string {
+    public static get roleUrl(): string {
     return "/role";
-}
+    }
+
+    public static get fileUrl(): string {
+        return "/file";
+        }
        
 }

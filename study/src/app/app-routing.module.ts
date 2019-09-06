@@ -1,3 +1,6 @@
+import { CreatecsylabusComponent } from './admin/sylabus/createcsylabus/createcsylabus.component';
+import { AddfileComponent } from './admin/fileupload/addfile/addfile.component';
+import { FileuploadComponent } from './admin/fileupload/fileupload.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
@@ -66,8 +69,10 @@ const routes: Routes = [
     { path: 'sylabus', component: SylabusComponent },
     { path: 'addsylabus', component: AddsylabusComponent },
     { path: 'profile', component: ProfileComponent  },
-    { path: 'role', component: RoleComponent  },
+    { path: 'role', component: RoleComponent  },    
     { path: 'role/:id', component: AddroleComponent  },
+    { path: 'file', component: FileuploadComponent  },
+    { path: 'addfile', component: AddfileComponent  },
     { path: 'blogs', component: BlogsComponent  },
     { path: 'blog/writer', component: BlogWriterComponent  },
     { path: 'blog/:id', component: BlogReaderComponent  },

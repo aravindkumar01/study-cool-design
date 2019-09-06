@@ -30,6 +30,7 @@ export class MenuComponent implements OnInit {
     {name:"Course",link:"/admin/course",icon_name:"file_copy"},
     {name:"Subject",link:"/admin/subject",icon_name:"collections_bookmark "},
     {name:"Sylabus",link:"/admin/sylabus",icon_name:"note_add"},
+    {name:"File",link:"/admin/file",icon_name:"account_box"},
     {name:"Logout",link:"/admin/logout",icon_name:"note_add"}
 
 

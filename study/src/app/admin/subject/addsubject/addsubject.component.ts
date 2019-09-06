@@ -28,7 +28,7 @@ export class AddsubjectComponent implements OnInit {
 
   semster:Semster[]=[
     {name:"odd"},{name:"even"}
-  ]
+  ];
 
   c_id:number;
   subject:Subject=new Subject();

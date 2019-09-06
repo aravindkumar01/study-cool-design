@@ -50,6 +50,9 @@ import { MarkdownModule, MarkedOptions, MarkedRenderer } from 'ngx-markdown';
 import { BlogReaderComponent } from './blogs/blog-reader/blog-reader.component';
 import { RoleComponent } from './admin/role/role.component';
 import { AddroleComponent } from './admin/role/addrole/addrole.component';
+import { FileuploadComponent } from './admin/fileupload/fileupload.component';
+import { AddfileComponent } from './admin/fileupload/addfile/addfile.component';
+import { CreatecsylabusComponent } from './admin/sylabus/createcsylabus/createcsylabus.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +89,10 @@ import { AddroleComponent } from './admin/role/addrole/addrole.component';
     BlogWriterComponent,
     BlogReaderComponent,
     RoleComponent,
-    AddroleComponent
+    AddroleComponent,
+    FileuploadComponent,
+    AddfileComponent,
+    CreatecsylabusComponent
    
     
   ],
