@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { FormControl, Validators } from '@angular/forms';
 import { SubjectService } from '../service/subject.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { Subject } from '../model/subject';
 
@@ -26,10 +26,12 @@ export class AddsubjectComponent implements OnInit {
     {count:3}    
   ];
 
+  title:string="Add new subject";
   semster:Semster[]=[
     {name:"odd"},{name:"even"}
   ];
 
+  subject_id:number;
   c_id:number;
   subject:Subject=new Subject();
   buttonName:string="Create";
@@ -37,19 +39,23 @@ export class AddsubjectComponent implements OnInit {
   yearControl = new FormControl('', [Validators.required]);
   semsterControl = new FormControl('', [Validators.required]);
     unitControl=new FormControl('', [Validators.required]);
-  constructor(private service:SubjectService,private router: Router) { }
+  constructor(private service:SubjectService,private router: Router,private route: ActivatedRoute) { }
 
   ngOnInit() {
    
-    let SubjectId = localStorage.getItem("SubjectId");
-    this.c_id=+localStorage.getItem("CourseId");
+    //get param values
+    this.route.params.subscribe(params => {
+      this.subject_id = params['sid'];
+      this.c_id=params['cid'];
+    });  
+    
 
-    if(SubjectId!=null) {      
+    if(this.subject_id!=null && this.subject_id > 0) { 
+      this.title="Update Subject";     
       this.buttonName="Update";
-       this.service.getSubject(+ SubjectId).pipe(first()).subscribe(subject => {   
+       this.service.getSubject(+ this.subject_id).pipe(first()).subscribe(subject => {   
                    this.subject=subject;
-           });
-          localStorage.removeItem("SubjectId");
+           });  
          
     }
     
@@ -63,19 +69,15 @@ export class AddsubjectComponent implements OnInit {
         },
         error => {
           console.log(error);         
-          alert(error.error.text);
-          
+          alert(error.error.text);          
         }
         );
-    this.subject = new Subject();
-   
-    this.router.navigate(['/admin/subject']);
-   // window.location.reload();
+    this.subject = new Subject();   
+    this.router.navigate(['/admin/subject/'+this.c_id]);  
   }
 
   
   onSubmit() {
-    localStorage.removeItem("SubjectId");  
     this.save();
   }
 

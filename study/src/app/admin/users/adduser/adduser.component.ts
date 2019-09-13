@@ -7,6 +7,9 @@ import { UserService } from '../service/user.service';
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { logging } from 'protractor';
+import { UnivercityService } from '../../univercity/service/univercity.service';
+import { RoleService } from '../../role/service/role.service';
+import { CourseService } from '../../course/service/course.service';
 
 export interface Univercity {
   name: string;
@@ -51,28 +54,21 @@ export class AdduserComponent implements OnInit {
   ]);
   matcher = new MyErrorStateMatcher();
   
-  univercity: Univercity[] = [
-    {name: 'Anna'},
-    {name: 'Bharathiyar'},
-    {name: 'Kamarajar'},
-  ];
-  userType: UserType[] = [
-    {name: 'ADMIN'},
-    {name: 'STAFF'},
-    {name: 'STUDENT'}
-  ];
+  univercity: Univercity[];
+   
+  userType: UserType[];
 
-  course: Course[] = [
-    {name: 'MCA'},
-    {name: 'BCA'}
-  ];
+  course: Course[];
 
-  constructor(private service:UserService,private router: Router) { }
+
+  constructor(private service:UserService,private router: Router,
+    private univercityService:UnivercityService,private roleService:RoleService,private courseService:CourseService) { }
 
   ngOnInit() {
+    this.setDropdown();
+
     this.userId = localStorage.getItem("UserId");   
-    if(this.userId!=null) {
-      alert("update");
+    if(this.userId!=null) {     
       this.buttonName="Update";
        this.service.getUser(+ this.userId).pipe(first()).subscribe(user => {       
         this.user=user;       
@@ -91,6 +87,7 @@ export class AdduserComponent implements OnInit {
         
         },error => {
           if(error.error.text=="Sucess"){
+            alert("sucess");
             this.router.navigate(['/admin/users']);
           }else{
             alert(error.error.text);
@@ -111,4 +108,27 @@ export class AdduserComponent implements OnInit {
     
   }
 
+
+
+  setDropdown(){
+    //set univercity
+    this.univercityService.getUniverictyList().pipe(first()).subscribe(univercity => {        
+      this.univercity=univercity;
+     });
+
+     //set role
+     this.roleService.getRoleList().pipe(first()).subscribe(role => {               
+      this.userType=role;
+     });
+
+  }
+
+  getCourse(value:any){
+    if(value!=null && value!=""){
+     this.courseService.getListByUnivrcity(value).pipe(first()).subscribe(course => {        
+       this.course=course;
+      });
+    }
+   
+ }
 }

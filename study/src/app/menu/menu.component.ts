@@ -1,10 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {MediaMatcher} from '@angular/cdk/layout';
-import {ChangeDetectorRef,OnDestroy} from '@angular/core';
-import { Menu } from './modal/menu';
+import { MediaMatcher } from '@angular/cdk/layout';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
-import{HttpClientModule } from "@angular/common/http";
+import { Menu } from './modal/menu';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -24,11 +22,13 @@ export class MenuComponent implements OnInit {
 
   adminNav:Menu[]=[     
     {name:"Dashboard",link:"/admin/dashboard",icon_name:"home"},
+    {name:"UserPassword",link:"/admin/password",icon_name:"account_box"},
     {name:"Users",link:"/admin/users",icon_name:"account_box"},
     {name:"Roles",link:"/admin/role",icon_name:"account_box"},
+    {name:"Blogs",link:"/admin/blogs",icon_name:"account_box"},
     {name:"Univercity",link:"/admin/univercity",icon_name:"markunread_mailbox"},
     {name:"Course",link:"/admin/course",icon_name:"file_copy"},
-    {name:"Subject",link:"/admin/subject",icon_name:"collections_bookmark "},
+    {name:"Subject",link:"/admin/subject/0",icon_name:"collections_bookmark "},
     {name:"Sylabus",link:"/admin/sylabus",icon_name:"note_add"},
     {name:"File",link:"/admin/file",icon_name:"account_box"},
     {name:"Logout",link:"/admin/logout",icon_name:"note_add"}

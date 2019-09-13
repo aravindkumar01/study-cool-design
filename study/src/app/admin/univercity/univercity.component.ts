@@ -74,7 +74,7 @@ export class UnivercityComponent implements OnInit {
     editUnivercity(univercity:Univercity)
   {
   
-   localStorage.removeItem("UnivercityId");
+    localStorage.removeItem("UnivercityId");
     localStorage.setItem("UnivercityId", univercity.id.toString());
     this.router.navigate(['/admin/addunivercity']);
   }

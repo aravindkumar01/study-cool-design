@@ -12,7 +12,7 @@ import { first } from 'rxjs/operators';
 })
 export class AddunivercityComponent implements OnInit {
 
-  
+  title:string="Add new univercity";
   univercity:Univercity = new Univercity();
   buttonName:string="Create";
   // univercity:Univercity[];
@@ -26,6 +26,7 @@ export class AddunivercityComponent implements OnInit {
     let UnivercityId = localStorage.getItem("UnivercityId");
 
     if(UnivercityId!=null) {
+      this.title="Update Univercity";
       this.buttonName="Update";
        this.service.getUnivercity(+ UnivercityId).pipe(first()).subscribe(univercity => {   
            this.univercity=univercity; });

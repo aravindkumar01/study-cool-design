@@ -1,10 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Subject } from './model/subject';
-import { MatTableDataSource, MatPaginator, MatSort, MatGridTileHeaderCssMatStyler } from '@angular/material';
-import { SubjectService } from './service/subject.service';
-import { Router } from '@angular/router';
+import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
-import { Sylabus } from '../sylabus/model/sylabus';
+import { Subject } from './model/subject';
+import { SubjectService } from './service/subject.service';
 
 @Component({
   selector: 'app-subject',
@@ -23,7 +22,7 @@ export class SubjectComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  constructor(private service:SubjectService,private router: Router) {
+  constructor(private service:SubjectService,private router: Router,private route: ActivatedRoute) {
    
   
   }
@@ -53,20 +52,21 @@ export class SubjectComponent implements OnInit {
   }
   ngOnInit() {
    
-    this.c_id=+localStorage.getItem("CourseId");
+    //get param values
+    this.route.params.subscribe(params => {
+      this.c_id = params['cid'];
+    });
     
-    if(localStorage.getItem("CourseId")!=null){
+    //set subject table values
+    if(this.c_id!=null && this.c_id > 0){
       this.title="Subject_"+this.c_id;
-      this.subjectListByCourse(this.c_id);  
-     
-    }
-    else{ this.subjectList(); }  
+      this.subjectListByCourse(this.c_id); 
+    }else { this.subjectList(); }  
    
   }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
@@ -93,25 +93,19 @@ export class SubjectComponent implements OnInit {
 
     editSubject(subject:Subject)
   {    
-    localStorage.removeItem("SubjectId");
-    localStorage.setItem("SubjectId", subject.id.toString());
-    this.router.navigate(['/admin/addsubject']);
+    this.router.navigate(['/admin/addsubject/'+subject.course_id+'/'+subject.id]);
   }
 
 
 
   addSubject()
-  {  
-    localStorage.removeItem("CourseId");
-    localStorage.setItem("CourseId",this.c_id.toString());
-    this.router.navigate(['/admin/addsubject']);
+  {     
+    this.router.navigate(['/admin/addsubject/'+this.c_id+'/0']);
   }
 
   viewSylabus(subject:Subject)
   {
-    localStorage.removeItem("SubjectId");
-    localStorage.setItem("SubjectId", subject.id.toString());
-    this.router.navigate(['/admin/sylabus']);
+    this.router.navigate(['/admin/sylabus/'+subject.id]);
   }
 
 }

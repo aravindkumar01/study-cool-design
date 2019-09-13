@@ -53,6 +53,9 @@ import { AddroleComponent } from './admin/role/addrole/addrole.component';
 import { FileuploadComponent } from './admin/fileupload/fileupload.component';
 import { AddfileComponent } from './admin/fileupload/addfile/addfile.component';
 import { CreatecsylabusComponent } from './admin/sylabus/createcsylabus/createcsylabus.component';
+import { PasswordComponent } from './admin/password/password.component';
+import { EditpasswordComponent } from './admin/password/editpassword/editpassword.component';
+import { RestpasswordComponent } from './restpassword/restpassword.component';
 
 @NgModule({
   declarations: [
@@ -92,7 +95,10 @@ import { CreatecsylabusComponent } from './admin/sylabus/createcsylabus/createcs
     AddroleComponent,
     FileuploadComponent,
     AddfileComponent,
-    CreatecsylabusComponent
+    CreatecsylabusComponent,
+    PasswordComponent,
+    EditpasswordComponent,
+    RestpasswordComponent
    
     
   ],

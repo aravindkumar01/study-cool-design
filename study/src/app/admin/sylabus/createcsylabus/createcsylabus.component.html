@@ -1,10 +1,10 @@
 <div class="" style="margin-left: 10px;">
   <div class="row">
     <div class="col-md-5">
-        <h2>Write Your Blog</h2>
+        <h2>Write Your Sylabus</h2>
       </div>
    <div class="col-md-1"><br>
-        <button mat-raised-button color="accent" (click)="postValues(tittle.value,tags.value)">Post</button>
+        <button mat-raised-button color="accent" (click)="postValues()">{{buttonName}}</button>
     </div>
     <div class="col-md-6 action-buttons" style="margin-top: 10px;">    
         <button mat-raised-button color="accent" (click)="showFullScreen(true)">Full Screen Preview</button>
@@ -17,10 +17,17 @@
         <!-- <label>Editor (with French locale)</label> -->
         <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="Tittle of the blog"  name="tittle" #tittle>
+              <input matInput placeholder="Topic "  name="topic"  [(ngModel)]="sylabus.topic">
             </mat-form-field>&nbsp;&nbsp;
-            <mat-form-field class="example-full-width">
-              <input matInput placeholder="Tags like #java #maths" name="tags" #tags>
+           <mat-form-field class="example-full-width">            
+              <mat-label>Unit</mat-label>
+              <mat-select  [formControl]="unitControl"  name="year" required [(ngModel)]="sylabus.unit_number">
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let y of unit" [value]="y.count">
+                  {{y.count}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="unitControl.hasError('required')">Please choose an unit number</mat-error>
             </mat-form-field>
         </div>
         <div class="col-md-8 hide"><br>

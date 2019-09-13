@@ -59,5 +59,10 @@ export class Url {
     public static get fileUrl(): string {
         return "/file";
         }
+
+        public static get passwordUrl(): string {
+            return "/password";
+            }
+           
        
 }

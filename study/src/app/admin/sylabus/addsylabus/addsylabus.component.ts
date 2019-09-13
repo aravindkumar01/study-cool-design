@@ -84,7 +84,7 @@ export class AddsylabusComponent implements OnInit {
 
   onSubmit() {
         localStorage.removeItem("SylabusId");  
-  this.save();
+        this.save();
 
   }
 

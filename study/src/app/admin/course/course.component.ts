@@ -28,28 +28,22 @@ export class CourseComponent implements OnInit {
   
   courseList()
   {
-  
-    this.service.getCourseList().pipe(first()).subscribe(course => {  
-     
-     
-      //window.location.reload();
-      this.courses=course;
-      this.dataSource = new MatTableDataSource(this.courses);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
       
-  });
+        this.service.getCourseList().pipe(first()).subscribe(course => { 
+                //window.location.reload();
+                this.courses=course;
+                this.dataSource = new MatTableDataSource(this.courses);
+                this.dataSource.paginator = this.paginator;
+                this.dataSource.sort = this.sort;      
+      });
      
   }
-  ngOnInit() {
-   
+  ngOnInit() {   
     this.courseList();  
-
   }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
@@ -57,16 +51,13 @@ export class CourseComponent implements OnInit {
 
 
 
-  deleteUnivercity(course:Course)
-  {
-   
+  deleteUnivercity(course:Course){   
    let r = confirm("Press yes to delete!");
           if (r == true) {
             this.service.deleteCourse(course.id) .subscribe(
               data => {
                 alert(data);     
-              },
-              error => {
+              },error => {
                console.log(error);         
                 alert(error.error.text);        
               }
@@ -74,19 +65,14 @@ export class CourseComponent implements OnInit {
           } 
     }
 
-    editUnivercity(course:Course)
+    editCourse(course:Course)
   {
-  
-   localStorage.removeItem("CourseId");
-    localStorage.setItem("CourseId", course.id.toString());
-    this.router.navigate(['/admin/addcourse']);
+    this.router.navigate(['/admin/addcourse/'+course.id]);
   }
 
   viewSubject(course:Course)
-  {
-    localStorage.removeItem("CourseId");
-    localStorage.setItem("CourseId", course.id.toString());
-    this.router.navigate(['/admin/subject']);
+  {  
+    this.router.navigate(['/admin/subject/'+course.id]);
   }
 
 }
