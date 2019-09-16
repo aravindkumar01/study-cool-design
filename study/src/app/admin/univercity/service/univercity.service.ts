@@ -40,8 +40,7 @@ export class UnivercityService {
 
 
   getUniverictyList() {
-    var token= Constants.token_prefix+ localStorage.getItem('token');
-    const headers = new HttpHeaders({Authorization:token});       
+  
     return this.http.get<Univercity[]>(this.baseURL);
   }
 

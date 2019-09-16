@@ -37,5 +37,10 @@ export class BlogsService {
     return this.http.get<Blogs[]>(this.baseURL+'/dash',{headers});
   }
   
-
+  getBlogsListByUsername(username:any) {
+    var token= Constants.token_prefix+ localStorage.getItem('token');
+    const headers = new HttpHeaders({Authorization:token});       
+    return this.http.get<Blogs[]>(this.baseURL+'/dash/'+username,{headers});
+  }
+  
 }

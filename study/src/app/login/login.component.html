@@ -6,9 +6,10 @@
 
 <mat-card class="example-card" >
       <mat-card-header color="primary" style="text-align:center;" >
+        <div mat-card-avatar class="col-sm-2"></div>
         <mat-card-title >Study Cool </mat-card-title>
         <mat-card-subtitle *ngIf="response" class="output">Username or Password worng!!</mat-card-subtitle>  
-        <mat-card-subtitle > Sign in to continue.</mat-card-subtitle>      
+        <mat-card-subtitle style="margin-left: 30px; font-size:12px;"> Sign in to continue.</mat-card-subtitle>      
       </mat-card-header>
       <mat-divider> </mat-divider>
       <form class="example-form" role="form" (ngSubmit)="login()">
@@ -44,4 +45,5 @@
     
     </div>
     <div class="col-md-4"></div>
+    
 </div>

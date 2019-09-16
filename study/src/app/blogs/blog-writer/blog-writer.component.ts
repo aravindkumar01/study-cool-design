@@ -135,18 +135,31 @@ export class BlogWriterComponent implements OnInit {
       error => {
         console.log(error);         
         alert(error.error.text);
-        
+        this.redriect();
       });
-    window.location.reload();
+    
     
   }
 
 
-  newBlog(){    
+  newBlog(){      
     this.markdownText='';
     this.buildForm(this.markdownText);
     alert(this.markdownText)
   }
+
+
+
+  redriect(){
+    if(Url.userRole=="ROLE_ADMIN"){
+        this.router.navigate(['/admin/myblogs']);
+      }else if(Url.userRole=="ROLE_STUDENT"){
+        this.router.navigate(['/user/myblogs']);
+      } else if(Url.userRole=="ROLE_STAFF"){            
+        this.router.navigate(['/staff/myblogs']);
+      }  
+}
+
 }
 
 

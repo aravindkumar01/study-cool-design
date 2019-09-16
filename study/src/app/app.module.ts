@@ -56,6 +56,7 @@ import { CreatecsylabusComponent } from './admin/sylabus/createcsylabus/createcs
 import { PasswordComponent } from './admin/password/password.component';
 import { EditpasswordComponent } from './admin/password/editpassword/editpassword.component';
 import { RestpasswordComponent } from './restpassword/restpassword.component';
+import { MyblogsComponent } from './blogs/myblogs/myblogs.component';
 
 @NgModule({
   declarations: [
@@ -98,7 +99,8 @@ import { RestpasswordComponent } from './restpassword/restpassword.component';
     CreatecsylabusComponent,
     PasswordComponent,
     EditpasswordComponent,
-    RestpasswordComponent
+    RestpasswordComponent,
+    MyblogsComponent
    
     
   ],

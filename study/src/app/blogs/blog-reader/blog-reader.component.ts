@@ -27,14 +27,11 @@ export class BlogReaderComponent implements OnInit {
     });
 
     this.service.getBlog(this.id).subscribe((blogs:Blogs)=> {  
-      console.log(blogs);
+      // /console.log(blogs);
       this.blog=blogs;      
       this.markdownText =this.blog.content;   
       this.likes=this.blog.likes; 
     });
-
-   
-
     this.buildForm(this.markdownText);
   
   }

@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { BlogsService } from './service/blogs.service';
-import { Blogs } from './model/blogs';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Url } from '../URL/url';
+import { BlogsService } from '../service/blogs.service';
+import { Router } from '@angular/router';
+import { Url } from 'src/app/URL/url';
 
 @Component({
-  selector: 'app-blogs',
-  templateUrl: './blogs.component.html',
-  styleUrls: ['./blogs.component.css']
+  selector: 'app-myblogs',
+  templateUrl: './myblogs.component.html',
+  styleUrls: ['./myblogs.component.css']
 })
-export class BlogsComponent implements OnInit {
+export class MyblogsComponent implements OnInit {
 
   role:string=Url.userRole;
   blogs:any[];
@@ -26,18 +25,6 @@ export class BlogsComponent implements OnInit {
           });
   }
 
-
-  newBlog(){
-        if(this.role=="ROLE_ADMIN"){
-            this.router.navigate(['/admin/blog/writer']);
-          }else if(this.role=="ROLE_STUDENT"){
-            this.router.navigate(['/user/blog/writer']);
-          } else if(this.role=="ROLE_STAFF"){            
-            this.router.navigate(['/staff/blog/writer']);
-          }  
-  }
-
-
   blogReader(id:number){   
     if(this.role=="ROLE_ADMIN"){
         this.router.navigate(['/admin/blog/'+id]);
@@ -47,4 +34,5 @@ export class BlogsComponent implements OnInit {
         this.router.navigate(['/staff/blog/'+id]);
       }  
   }
+
 }

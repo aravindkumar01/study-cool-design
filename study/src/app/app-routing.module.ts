@@ -1,3 +1,4 @@
+import { MyblogsComponent } from './blogs/myblogs/myblogs.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddcourseComponent } from './admin/course/addcourse/addcourse.component';
@@ -58,7 +59,7 @@ const routes: Routes = [
       {path: '', component: RestpasswordComponent}
     ]
   },
-
+  
   { path: 'admin', component: HomeLayoutComponent,  
   children: [
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },    
@@ -83,6 +84,7 @@ const routes: Routes = [
     { path: 'addfile', component: AddfileComponent  },
     { path: 'blogs', component: BlogsComponent  },
     { path: 'blog/writer', component: BlogWriterComponent  },
+    { path: 'myblogs', component:MyblogsComponent  },    
     { path: 'blog/:id', component: BlogReaderComponent  },
     {path:'logout',component:LogoutComponent}
    
@@ -100,6 +102,7 @@ const routes: Routes = [
     {path:"course",component:UserCourseComponent},
     { path: 'blogs', component: BlogsComponent  },
     { path: 'blog/writer', component: BlogWriterComponent  },
+    { path: 'myblogs', component:MyblogsComponent  },    
     { path: 'blog/:id', component: BlogReaderComponent  },
     { path: 'profile', component: ProfileComponent  },
     { path: 'content/:id', component: ContentComponent  },
@@ -117,6 +120,7 @@ const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: StaffHomeComponent  },
     { path: 'blogs', component: BlogsComponent  },
+    { path: 'myblogs', component:MyblogsComponent},    
     { path: 'blog/writer', component: BlogWriterComponent  },
     { path: 'blog/:id', component: BlogReaderComponent  },
     { path: 'profile', component: ProfileComponent  },

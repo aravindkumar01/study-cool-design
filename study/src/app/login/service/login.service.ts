@@ -25,6 +25,13 @@ export class LoginService {
       
     }
 
+    resetPassword(username:string) {  
+      var url=  Url.baseURL+Url.restUrl+'/'+'forgetpassword/'+username;
+      alert(url);
+        return this.http.get<any>(url);
+          
+        }
+
 
 
   }

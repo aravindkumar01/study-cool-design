@@ -1,0 +1,88 @@
+<div class="wrapper">
+  <div class="box">
+      <div class="row">
+          <div class="col-sm-3">
+              
+          </div>
+          
+          <div class="column col-sm-9" id="main">
+              <div class="padding">
+                  <div class="full col-sm-12">
+                      <div class="col-sm-12" id="featured">   
+                        <div class="page-header text-muted">
+                          <p class=" blog">Our Blogs</p>                          
+                        </div> 
+                        <div class="row" *ngFor="let blog of blogs">    
+                            <div class="col-sm-10">
+                              <h3>{{blog[1]}}</h3>
+                              <h4><span class="label label-default">{{blog[2]}}</span></h4><h4>
+                              <small class="text-muted">{{blog[3]}} <a  class="text-muted" (click)="blogReader(blog[0])" >Read More</a></small>
+                              </h4>
+                            </div>
+                            <div class="col-sm-2">
+
+                            </div>  
+                          </div>
+                      </div>
+                   
+                      
+                      <div class="col-sm-12">
+                        <div class="page-header text-muted divider">
+                          Up Next
+                        </div>
+                        
+                      </div>
+                    
+                  
+                      <div class="col-sm-12">
+                        <div class="page-header text-muted divider">
+                          Connect with Us
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                              <a href="#">Twitter</a> <small class="text-muted">|</small> 
+                              <a href="#">Facebook</a> <small class="text-muted">|</small>
+                                <a href="#">Google+</a>
+                            </div>
+                          </div>
+                      </div>
+                    
+                          
+                          <hr>                      
+                          <!-- <h3 class="text-center">
+                          <a href="" target="ext">Studycool</a>
+                          </h3> -->
+                            
+                    <hr>
+                      
+                    
+                  </div><!-- /col-9 -->
+                  
+              </div><!-- /padding -->
+          </div>
+
+         
+          <!-- /main -->
+      </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- 
+
+<div class="row">    
+  <div class="col-sm-10">
+    <h3>This is Some Awesome Featured Content</h3>
+    <p>when you think that a Serializable object might reference an instance of your class</p>
+    <h4><span class="label label-default">techvisually.com</span></h4><h4>
+    <small class="text-muted">1 hour ago • <a href="#" class="text-muted">Read More</a></small>
+    </h4>
+  </div>
+  <div class="col-sm-2">
+
+  </div>  
+</div> -->

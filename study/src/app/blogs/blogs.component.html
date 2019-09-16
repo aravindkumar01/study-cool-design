@@ -14,12 +14,12 @@
                           <div class="page-header text-muted">
                             <p class="col-sm-4 blog">Public Blogs</p>
                             <div class="input-group col-sm-8">
-                                <input type="text" class="form-control col-sm-7" aria-label="Amount (to the nearest dollar)">
+                                <input type="text" class="form-control col-sm-7" aria-label="Amount (to the nearest dollar)" placeholder="Like CSS JAVA">
                                 <div class="input-group-append col-sm-5">
                                     &nbsp; 
                                     <button mat-stroked-button class="col-sm-6" color="accent">
                                       Search &nbsp;<i class="material-icons"> search</i></button> &nbsp; 
-                                       <button mat-stroked-button class="col-sm-6" color="accent" [routerLink]="['/admin/blog/writer']">
+                                       <button mat-stroked-button class="col-sm-6" color="accent" (click)="newBlog()">
                                          New  &nbsp; <i class="material-icons">add</i></button>
                                 </div>
                                 
@@ -29,7 +29,7 @@
                               <div class="col-sm-10">
                                 <h3>{{blog[1]}}</h3>
                                 <h4><span class="label label-default">{{blog[2]}}</span></h4><h4>
-                                <small class="text-muted">{{blog[3]}} <a  class="text-muted" href="/staff/blog/{{blog[0]}}" >Read More</a></small>
+                                <small class="text-muted">{{blog[3]}} <a  class="text-muted" (click)="blogReader(blog[0])" >Read More</a></small>
                                 </h4>
                               </div>
                               <div class="col-sm-2">
