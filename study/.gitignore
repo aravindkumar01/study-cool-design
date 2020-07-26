@@ -44,3 +44,12 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+##########################
+## Java
+##########################
+*.class
+.mtj.tmp/ 
+*.jar
+*.war
+*.ear
